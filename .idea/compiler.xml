@@ -9,5 +9,19 @@
         <module name="chatroom_websocket" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="benchmark" target="1.8" />
+      <module name="framework" target="1.8" />
+      <module name="mybatis" target="1.8" />
+      <module name="mybatis_project" target="1.8" />
+      <module name="proxy" target="1.8" />
+      <module name="spring_aop_1" target="1.8" />
+      <module name="spring_jdbc" target="1.8" />
+      <module name="spring_mvc" target="1.8" />
+      <module name="spring_mvc_1" target="1.8" />
+      <module name="spring_mvc_basic" target="1.8" />
+      <module name="spring_spel" target="1.8" />
+      <module name="ssmdemo" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
 </project>
