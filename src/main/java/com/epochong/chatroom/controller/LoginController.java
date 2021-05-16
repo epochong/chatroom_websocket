@@ -1,11 +1,19 @@
 package com.epochong.chatroom.controller;
 
+import com.epochong.chatroom.application.query.service.AccountQueryService;
+import com.epochong.chatroom.application.query.service.impl.AccountQueryServiceImpl;
 import com.epochong.chatroom.config.FreeMarkerListener;
-import com.epochong.chatroom.service.AccountService;
-import com.epochong.chatroom.utils.CommUtils;
+import com.epochong.chatroom.controller.assember.UserAssembler;
+import com.epochong.chatroom.controller.dto.LoginDto;
+import com.epochong.chatroom.controller.vo.LoginVo;
+import com.epochong.chatroom.domian.value.BaseResp;
+import com.epochong.chatroom.infrastructure.repository.utils.Constant;
+import com.epochong.chatroom.infrastructure.repository.utils.UserUtils;
 import freemarker.template.Configuration;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
+import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang.exception.ExceptionUtils;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -18,6 +26,7 @@ import java.io.PrintWriter;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 /**
  * @author epochong
@@ -26,41 +35,46 @@ import java.util.Map;
  * @blog epochong.github.io
  * @describe
  */
+@Slf4j
 @WebServlet(urlPatterns = "/login")
 public class LoginController extends HttpServlet {
-    private AccountService accountService = new AccountService();
+
+    private AccountQueryService accountQueryService = new AccountQueryServiceImpl();
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String userName = req.getParameter("username");
-        String password = req.getParameter("password");
+        LoginVo loginVo = new LoginVo();
+        loginVo.setUsername(req.getParameter("username"));
+        loginVo.setPassword(req.getParameter("password"));
+        loginVo.setUserType(Integer.parseInt(req.getParameter("userType")));
         resp.setContentType("text/html;charset=utf8");
         PrintWriter out = resp.getWriter();
-        if (CommUtils.strIsNull(userName) || CommUtils.strIsNull(password)) {
+        // 校验参数
+        String verify = UserAssembler.verifyParams(loginVo);
+        if (Objects.nonNull(verify)) {
             // 登录失败,停留登录页面
-            out.println("    <script>\n" +
-                    "        alert(\"用户名或密码为空!\");\n" +
-                    "        window.location.href = \"/index.html\";\n" +
-                    "    </script>");
-
-        }else if (accountService.userLogin(userName,password)) {
+            out.println(verify);
+            return;
+        }
+        LoginDto loginDto = UserAssembler.getLoginDto(loginVo);
+        BaseResp baseResp = accountQueryService.userLogin(loginDto);
+        if (baseResp.getCode() == Constant.SUCCESS) {
             // 登录成功,跳转到聊天页面
             // 加载chat.ftl
             Template template = getTemplate(req,"/chat.ftl");
             //给前端传参放入map中，以k,v的形式
             Map<String, String> map = new HashMap<>();
-            map.put("username",userName);
+            map.put("username", UserUtils.getUserName(loginVo.getUsername(), loginVo.getUserType()));
+            map.put("userType", String.valueOf(loginVo.getUserType()));
             try {
                 //交给前端处理，out前端响应
                 template.process(map, out);
             } catch (TemplateException e) {
-                e.printStackTrace();
+                log.error("login error:{}", ExceptionUtils.getStackTrace(e));
             }
-        }else {
+        } else {
             // 登录失败,停留在登录页面
-            out.println("    <script>\n" +
-                    "        alert(\"用户名或密码不正确!\");\n" +
-                    "        window.location.href = \"/index.html\";\n" +
-                    "    </script>");
+            out.println(UserAssembler.getWriterStr(baseResp));
         }
     }
 

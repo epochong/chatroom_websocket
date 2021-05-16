@@ -1,6 +1,11 @@
 package com.epochong.chatroom.controller;
 
-import com.epochong.chatroom.service.AccountService;
+import com.epochong.chatroom.application.command.service.impl.AccountCommandServiceImpl;
+import com.epochong.chatroom.controller.assember.UserAssembler;
+import com.epochong.chatroom.controller.dto.LoginDto;
+import com.epochong.chatroom.controller.vo.LoginVo;
+import com.epochong.chatroom.application.command.service.AccountCommandService;
+import com.epochong.chatroom.domian.value.BaseResp;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -21,32 +26,21 @@ import java.io.PrintWriter;
  */
 @WebServlet(urlPatterns = "/doRegister")
 public class AccountController extends HttpServlet {
-    private AccountService accountService = new AccountService();
+    private AccountCommandService accountCommandService = new AccountCommandServiceImpl();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         //从表单中获取的值
-        String userName = req.getParameter("username");
-        String password = req.getParameter("password");
+        LoginVo loginVo = new LoginVo();
+        loginVo.setUsername(req.getParameter("username"));
+        loginVo.setPassword(req.getParameter("password"));
+        loginVo.setUserType(Integer.parseInt(req.getParameter("userType")));
         //保证页面输出不乱码页面格式为text/html，编码为utf8
         resp.setContentType("text/html;charset=utf8");
         PrintWriter writer = resp.getWriter();
-        if (accountService.userRegister(userName,password)) {
-            /*
-            * 用户注册成功，弹窗提示
-            * 返回登录界面
-            */
-            writer.println("<script>\n" +
-                    "    alert(\"注册成功\");\n" +
-                    "    window.location.href = \"/index.html\" ;\n" +
-                    "</script>");
-        } else {
-            /*弹框失败，保留原页面*/
-            writer.println("<script>\n" +
-                    "    alert(\"注册失败\");\n" +
-                    "    window.location.href = \"/registration.html\" ;\n" +
-                    "</script>");
-        }
+        LoginDto loginDto = UserAssembler.getLoginDto(loginVo);
+        BaseResp registerResp = accountCommandService.userRegister(loginDto);
+        writer.println(UserAssembler.getWriterStr(registerResp));
     }
 
     @Override

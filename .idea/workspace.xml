@@ -10,46 +10,64 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5633d1bc-aa9e-4ce1-b68d-c62ccdb1451b" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/chatroom_websocket.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/epochong/chatroom/config/FreeMarkerListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/epochong/chatroom/controller/AccountController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/epochong/chatroom/controller/LoginController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/epochong/chatroom/dao/AccountDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/epochong/chatroom/dao/BaseDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/epochong/chatroom/entity/Message2Client.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/epochong/chatroom/entity/MessageFromClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/epochong/chatroom/entity/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/epochong/chatroom/service/AccountService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/epochong/chatroom/service/WebSocket.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/epochong/chatroom/utils/CommUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/epochong/chatroom/utils/JdbcUtils1.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/main.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/datasource.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/chat.ftl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/registration.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/text.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/websocketTest.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/JDBCDemo1.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/epochong/chatroom/dao/AccountDaoTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/epochong/chatroom/utils/CommUtilsTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/epochong/chatroom/application/command/service/AccountCommandService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/c4d859f9-ec24-4a9d-a449-ed8f82406b02.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/c4d859f9-ec24-4a9d-a449-ed8f82406b02.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/chatroom_websocket.iml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/JDBCDemo1.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/JdbcUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/epochong/chatroom/utils/JdbcUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/epochong/chatroom/config/FreeMarkerListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/epochong/chatroom/config/FreeMarkerListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/epochong/chatroom/controller/AccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/epochong/chatroom/controller/AccountController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/epochong/chatroom/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/epochong/chatroom/controller/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/epochong/chatroom/dao/AccountDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/epochong/chatroom/infrastructure/repository/AccountDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/epochong/chatroom/dao/BaseDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/epochong/chatroom/infrastructure/repository/BaseDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/epochong/chatroom/entity/Message2Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/epochong/chatroom/domian/value/Message2Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/epochong/chatroom/entity/MessageFromClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/epochong/chatroom/domian/value/MessageFromClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/epochong/chatroom/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/epochong/chatroom/domian/entity/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/epochong/chatroom/service/AccountService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/epochong/chatroom/service/WebSocket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/epochong/chatroom/application/websocket/WebSocketService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/epochong/chatroom/utils/CommUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/epochong/chatroom/infrastructure/repository/utils/CommUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/epochong/chatroom/utils/JdbcUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/epochong/chatroom/infrastructure/repository/utils/JdbcUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/epochong/chatroom/utils/JdbcUtils1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/epochong/chatroom/infrastructure/repository/utils/JdbcUtils1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/chat.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/chat.ftl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/websocketTest.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/websocketTest.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/JDBCDemo1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/JDBCDemo1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/epochong/chatroom/dao/AccountDaoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/epochong/chatroom/infrastructure/repository/dao/AccountDaoTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/epochong/chatroom/utils/CommUtilsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/epochong/chatroom/infrastructure/repository/utils/CommUtilsTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/chatroom_websocket-1.0-SNAPSHOT/WEB-INF/classes/com/epochong/chatroom/config/FreeMarkerListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/chatroom_websocket-1.0-SNAPSHOT/WEB-INF/classes/com/epochong/chatroom/config/FreeMarkerListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/chatroom_websocket-1.0-SNAPSHOT/WEB-INF/classes/com/epochong/chatroom/controller/AccountController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/chatroom_websocket-1.0-SNAPSHOT/WEB-INF/classes/com/epochong/chatroom/controller/AccountController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/chatroom_websocket-1.0-SNAPSHOT/WEB-INF/classes/com/epochong/chatroom/controller/LoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/chatroom_websocket-1.0-SNAPSHOT/WEB-INF/classes/com/epochong/chatroom/controller/LoginController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/chatroom_websocket-1.0-SNAPSHOT/WEB-INF/classes/com/epochong/chatroom/dao/AccountDao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/chatroom_websocket-1.0-SNAPSHOT/WEB-INF/classes/com/epochong/chatroom/dao/BaseDao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/chatroom_websocket-1.0-SNAPSHOT/WEB-INF/classes/com/epochong/chatroom/entity/Message2Client.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/chatroom_websocket-1.0-SNAPSHOT/WEB-INF/classes/com/epochong/chatroom/entity/MessageFromClient.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/chatroom_websocket-1.0-SNAPSHOT/WEB-INF/classes/com/epochong/chatroom/entity/User.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/chatroom_websocket-1.0-SNAPSHOT/WEB-INF/classes/com/epochong/chatroom/service/AccountService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/chatroom_websocket-1.0-SNAPSHOT/WEB-INF/classes/com/epochong/chatroom/service/WebSocket.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/chatroom_websocket-1.0-SNAPSHOT/WEB-INF/classes/com/epochong/chatroom/utils/CommUtils.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/chatroom_websocket-1.0-SNAPSHOT/WEB-INF/classes/com/epochong/chatroom/utils/JdbcUtils.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/chatroom_websocket-1.0-SNAPSHOT/WEB-INF/classes/com/epochong/chatroom/utils/JdbcUtils1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/chatroom_websocket-1.0-SNAPSHOT/WEB-INF/classes/datasource.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/chatroom_websocket-1.0-SNAPSHOT/WEB-INF/classes/datasource.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/chatroom_websocket-1.0-SNAPSHOT/chat.ftl" beforeDir="false" afterPath="$PROJECT_DIR$/target/chatroom_websocket-1.0-SNAPSHOT/chat.ftl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/chatroom_websocket-1.0-SNAPSHOT/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/chatroom_websocket-1.0-SNAPSHOT/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/chatroom_websocket-1.0-SNAPSHOT/registration.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/chatroom_websocket-1.0-SNAPSHOT/registration.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/chatroom_websocket-1.0-SNAPSHOT/websocketTest.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/chatroom_websocket-1.0-SNAPSHOT/websocketTest.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epochong/chatroom/config/FreeMarkerListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epochong/chatroom/config/FreeMarkerListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epochong/chatroom/controller/AccountController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epochong/chatroom/controller/AccountController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epochong/chatroom/controller/LoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/epochong/chatroom/controller/LoginController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epochong/chatroom/dao/AccountDao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epochong/chatroom/dao/BaseDao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epochong/chatroom/entity/Message2Client.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epochong/chatroom/entity/MessageFromClient.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epochong/chatroom/entity/User.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epochong/chatroom/service/AccountService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epochong/chatroom/service/WebSocket.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epochong/chatroom/utils/CommUtils.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epochong/chatroom/utils/JdbcUtils.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/epochong/chatroom/utils/JdbcUtils1.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/JDBCDemo1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/JDBCDemo1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/JdbcUtils.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/epochong/chatroom/dao/AccountDaoTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/epochong/chatroom/utils/CommUtilsTest.class" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path="$PROJECT_DIR$/../proxy/target/" />
@@ -130,56 +148,28 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="JDBCDemo1.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/test/java/JDBCDemo1.java">
+      <file leaf-file-name="WebSocketService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/epochong/chatroom/application/websocket/WebSocketService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="216">
-              <caret line="92" column="25" selection-start-line="92" selection-start-column="25" selection-end-line="92" selection-end-column="25" />
+            <state relative-caret-position="306">
+              <caret line="85" column="69" selection-start-line="85" selection-start-column="62" selection-end-line="85" selection-end-column="69" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#2703#2704#0" expanded="true" />
+                <element signature="e#2745#2746#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="datasource.properties" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/datasource.properties">
+      <file leaf-file-name="MessageAssembler.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/epochong/chatroom/controller/assember/MessageAssembler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="25">
-              <caret line="1" column="2" selection-start-line="1" selection-start-column="2" selection-end-line="1" selection-end-column="2" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="JdbcUtils.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/epochong/chatroom/utils/JdbcUtils.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-16">
-              <caret line="23" column="57" selection-start-line="23" selection-start-column="57" selection-end-line="23" selection-end-column="57" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="JdbcUtils1.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/epochong/chatroom/utils/JdbcUtils1.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="20" column="18" lean-forward="true" selection-start-line="20" selection-start-column="18" selection-end-line="20" selection-end-column="18" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CommUtils.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/epochong/chatroom/utils/CommUtils.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="421">
-              <caret line="58" column="32" selection-start-line="58" selection-start-column="32" selection-end-line="58" selection-end-column="32" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="websocketTest.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/websocketTest.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="350">
-              <caret line="14" column="59" selection-start-line="14" selection-start-column="59" selection-end-line="14" selection-end-column="59" />
+            <state relative-caret-position="254">
+              <caret line="26" column="23" selection-start-line="26" selection-start-column="23" selection-end-line="26" selection-end-column="23" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -187,37 +177,82 @@
       <file leaf-file-name="LoginController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/epochong/chatroom/controller/LoginController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="600">
-              <caret line="41" column="20" selection-start-line="41" selection-start-column="20" selection-end-line="42" selection-end-column="35" />
+            <state relative-caret-position="124">
+              <caret line="66" column="32" selection-start-line="66" selection-start-column="32" selection-end-line="66" selection-end-column="32" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SQLExceptionsMapping.java" pinned="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/mysql/mysql-connector-java/8.0.16/mysql-connector-java-8.0.16-sources.jar!/com/mysql/cj/jdbc/exceptions/SQLExceptionsMapping.java">
+      <file leaf-file-name="Message2Client.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/epochong/chatroom/domian/value/Message2Client.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1850">
-              <caret line="121" selection-start-line="121" selection-end-line="121" />
+            <state relative-caret-position="34">
+              <caret line="2" selection-start-line="2" selection-end-line="2" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#689#690#0" expanded="true" />
+                <element signature="e#740#741#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="text.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/text.html">
+      <file leaf-file-name="UserUtils.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/epochong/chatroom/infrastructure/repository/utils/UserUtils.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="250">
-              <caret line="10" column="9" selection-start-line="10" selection-start-column="9" selection-end-line="10" selection-end-column="9" />
+            <state relative-caret-position="156">
+              <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="registration.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/registration.html">
+      <file leaf-file-name="CommUtils.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/epochong/chatroom/infrastructure/repository/utils/CommUtils.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="3" column="26" selection-start-line="3" selection-start-column="26" selection-end-line="3" selection-end-column="26" />
+            <state relative-caret-position="222">
+              <caret line="56" column="23" lean-forward="true" selection-start-line="56" selection-start-column="23" selection-end-line="56" selection-end-column="23" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1365#1366#0" expanded="true" />
+                <element signature="e#1404#1405#0" expanded="true" />
+              </folding>
             </state>
           </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Gson.class" pinned="false" current-in-tab="false">
+        <entry file="jar://$MAVEN_REPOSITORY$/com/google/code/gson/gson/2.8.5/gson-2.8.5.jar!/com/google/gson/Gson.class">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="213">
+              <caret line="378" column="33" selection-start-line="378" selection-start-column="33" selection-end-line="378" selection-end-column="33" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="chat.ftl" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/chat.ftl">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="205">
+              <caret line="99" column="27" lean-forward="true" selection-start-line="99" selection-start-column="27" selection-end-line="99" selection-end-column="27" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="lib.dom.d.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external/lib.dom.d.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="205">
+              <caret line="15870" column="12" selection-start-line="15870" selection-start-column="12" selection-end-line="15870" selection-end-column="12" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="robot2.jpg" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/assets/img/robot2.jpg">
+          <provider selected="true" editor-type-id="images" />
         </entry>
       </file>
     </leaf>
@@ -234,22 +269,49 @@
         <option value="mysql" />
         <option value="Interface" />
         <option value="mapper" />
-        <option value="Class" />
         <option value="db" />
         <option value="druid_db" />
+        <option value="Class" />
       </list>
     </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>用户名或密码为空</find>
-      <find>连接发生错误</find>
-      <find>DataSource</find>
-      <find>implements DataSource</find>
-      <find>read_from_server</find>
-      <find>session</find>
-      <find>che</find>
+      <find>上线</find>
+      <find>上线了</find>
+      <find>没有账户？</find>
+      <find>FreeMarkerListener</find>
+      <find>metadata-complete</find>
+      <find>username</find>
+      <find>TEMPLATE_KEY</find>
+      <find>连接成功</find>
+      <find>userName</find>
+      <find>password</find>
+      <find>@a</find>
+      <find>= user</find>
+      <find>/login</find>
+      <find>/chat.ftl</find>
+      <find>nesH</find>
+      <find>username=</find>
+      <find>登录</find>
+      <find>message</find>
+      <find>连接关闭</find>
+      <find>发送</find>
+      <find>我叫</find>
+      <find>客服</find>
+      <find>toU</find>
+      <find>r</find>
+      <find>userList</find>
+      <find>用户已</find>
+      <find>window</find>
+      <find>userType</find>
+      <find>说</find>
+      <find>headName</find>
     </findStrings>
+    <replaceStrings>
+      <replace>user.getUserName()</replace>
+      <replace>user.getPassword()</replace>
+    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -257,57 +319,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/../spring_mvc_1/src/main/java/com/ming/controller/DemoHandler2.java" />
-        <option value="$PROJECT_DIR$/../spring_mvc_1/web/WEB-INF/web.xml" />
-        <option value="$PROJECT_DIR$/../spring_mvc_1/src/main/java/com/ming/controller/ShowItemsController.java" />
-        <option value="$PROJECT_DIR$/../spring_mvc_1/src/main/resources/springmvc-servlet.xml" />
-        <option value="$PROJECT_DIR$/../spring_mvc_1/src/main/java/com/ming/controller/DemoHandler3.java" />
-        <option value="$PROJECT_DIR$/../spring_mvc_1/web/jsp/showList.jsp" />
-        <option value="$PROJECT_DIR$/../spring_mvc/src/main/java/com/ming/controller/ShowItemsController.java" />
-        <option value="$PROJECT_DIR$/../spring_mvc/src/main/webapp/WEB-INF/web.xml" />
-        <option value="$PROJECT_DIR$/../spring_mvc/src/main/resources/springmvc-servlet.xml" />
-        <option value="$PROJECT_DIR$/../spring_mvc/src/main/java/com/ming/controller/DemoHandler3.java" />
-        <option value="$PROJECT_DIR$/../spring_mvc/src/main/java/com/ming/controller/DemoHandler.java" />
-        <option value="$PROJECT_DIR$/../spring_mvc/src/main/resources/applicationContext-beans.xml" />
-        <option value="$PROJECT_DIR$/../mybatis_project/src/main/java/com/epochong/User.java" />
-        <option value="$PROJECT_DIR$/../mybatis_project/src/main/resources/sqlMapConfig.xml" />
-        <option value="$PROJECT_DIR$/../mybatis_project/src/test/java/com/epochong/MybatisTest.java" />
-        <option value="$PROJECT_DIR$/../spring_mvc_basic/pom.xml" />
-        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/c4d859f9-ec24-4a9d-a449-ed8f82406b02/console_3.sql" />
-        <option value="$PROJECT_DIR$/../mybatis/mybatis_multilist/src/main/java/com/epochong/po/Orderdetail.java" />
-        <option value="$PROJECT_DIR$/../mybatis/mybatis_multilist/src/main/java/com/epochong/po/UserEx.java" />
-        <option value="$PROJECT_DIR$/../mybatis/mybatis_multilist/src/main/resources/sqlMapConfig.xml" />
-        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/c4d859f9-ec24-4a9d-a449-ed8f82406b02/console_4.sql" />
-        <option value="$PROJECT_DIR$/../mybatis/mybatis_multilist/src/main/resources/db.properties" />
-        <option value="$PROJECT_DIR$/../mybatis/mybatis_multilist/pom.xml" />
-        <option value="$PROJECT_DIR$/../mybatis/mybatis_multilist/src/main/java/com/epochong/po/User.java" />
-        <option value="$PROJECT_DIR$/../mybatis/mybatis_multilist/src/main/java/com/epochong/bz/UserBz.java" />
-        <option value="$PROJECT_DIR$/../mybatis_project/src/main/resources/mapper/User.xml" />
-        <option value="$PROJECT_DIR$/../mybatis/mybatis_multilist/src/test/java/com/epochong/MybatisTest.java" />
-        <option value="$PROJECT_DIR$/../mybatis/mybatis_multilist/src/main/java/com/epochong/mapper/UserMapper.xml" />
-        <option value="$PROJECT_DIR$/../spring_mvc_basic/src/main/resources/springmvc-servlet.xml" />
-        <option value="$PROJECT_DIR$/../mybatis/mybatis_multilist/src/main/java/com/epochong/mapper/UserMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/epochong/chatroom/dao/BaseDao.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/epochong/chatroom/controller/AccountController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/epochong/chatroom/config/FreeMarkerListener.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/epochong/chatroom/utils/CommUtils.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/epochong/chatroom/entity/User.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/db.properties" />
-        <option value="$PROJECT_DIR$/src/main/java/com/epochong/chatroom/entity/MessageFromClient.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/epochong/chatroom/dao/AccountDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/epochong/chatroom/entity/Message2Client.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/index.html" />
-        <option value="$PROJECT_DIR$/src/main/webapp/chat.ftl" />
-        <option value="$PROJECT_DIR$/src/main/java/com/epochong/chatroom/controller/LoginController.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/epochong/chatroom/service/WebSocket.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/registration.html" />
-        <option value="$PROJECT_DIR$/src/main/webapp/websocketTest.html" />
         <option value="$PROJECT_DIR$/src/test/java/com/epochong/chatroom/dao/AccountDaoTest.java" />
         <option value="$PROJECT_DIR$/src/main/resources/datasource.properties" />
         <option value="$PROJECT_DIR$/src/test/java/com/epochong/chatroom/utils/CommUtilsTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/epochong/chatroom/utils/JdbcUtils.java" />
         <option value="$PROJECT_DIR$/src/test/java/JDBCDemo1.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/epochong/chatroom/utils/JdbcUtils.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/index.html" />
+        <option value="$PROJECT_DIR$/src/main/java/com/epochong/chatroom/config/FreeMarkerListener.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/websocketTest.html" />
+        <option value="$PROJECT_DIR$/src/main/java/com/epochong/chatroom/controller/dto/LoginDto.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/epochong/chatroom/entity/User.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/epochong/chatroom/controller/assember/LoginAssember.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/epochong/chatroom/dao/AccountDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/epochong/chatroom/service/AccountService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/epochong/chatroom/infrastructure/repository/mapper/AccountDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/epochong/chatroom/infrastructure/dao/AccountDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/epochong/chatroom/infrastructure/repository/dao/AccountDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/epochong/chatroom/infrastructure/repository/BaseDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/epochong/chatroom/domian/entity/Message2Client.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/epochong/chatroom/controller/vo/LoginVo.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/epochong/chatroom/infrastructure/repository/utils/ConstantUtils.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/epochong/chatroom/domian/value/MessageFromClient.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/epochong/chatroom/domian/entity/User.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/epochong/chatroom/service/WebSocket.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/resources/logback-spring.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/epochong/chatroom/application/service/AccountService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/epochong/chatroom/application/command/service/impl/AccountServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/epochong/chatroom/application/command/service/AccountService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/epochong/chatroom/application/query/service/AccountQueryServce.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/epochong/chatroom/application/command/service/AccountCommandService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/epochong/chatroom/controller/assember/UserAssember.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/epochong/chatroom/controller/AccountController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/epochong/chatroom/application/query/service/AccountQueryService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/epochong/chatroom/domian/value/BaseResp.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/epochong/chatroom/exception/ResourceException.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/epochong/chatroom/application/command/service/impl/AccountCommandServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/epochong/chatroom/infrastructure/repository/AccountDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/epochong/chatroom/infrastructure/repository/utils/Constant.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/epochong/chatroom/application/query/service/impl/AccountQueryServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/epochong/chatroom/infrastructure/repository/utils/CommUtils.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/epochong/chatroom/controller/LoginController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/epochong/chatroom/controller/assember/UserAssembler.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/epochong/chatroom/application/command/service/WebSocketMessageService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/epochong/chatroom/application/websocket/WebSocketMessageService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/epochong/chatroom/controller/assember/MessageAssembler.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/epochong/chatroom/application/websocket/WebSocketService.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/chat.ftl" />
+        <option value="$PROJECT_DIR$/src/main/java/com/epochong/chatroom/infrastructure/repository/utils/UserUtils.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/epochong/chatroom/domian/value/Message2Client.java" />
       </list>
     </option>
   </component>
@@ -359,54 +421,22 @@
     <packageJsonPaths />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="835" />
-    <option name="y" value="110" />
-    <option name="width" value="830" />
-    <option name="height" value="680" />
+    <option name="x" value="460" />
+    <option name="y" value="10" />
+    <option name="width" value="1270" />
+    <option name="height" value="1060" />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
+      <flattenPackages ProjectPane="false" />
+      <autoscrollToSource ProjectPane="true" />
+      <autoscrollFromSource ProjectPane="true" />
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="chatroom_websocket" type="58d84e3e:PackageViewProjectNode" />
-              <item name="mybatis" type="616d4139:PackageViewModuleNode" />
-            </path>
-            <path>
-              <item name="chatroom_websocket" type="58d84e3e:PackageViewProjectNode" />
-              <item name="mybatis" type="616d4139:PackageViewModuleNode" />
-              <item name="com" type="1f31426a:PackageElementNode" />
-            </path>
-            <path>
-              <item name="chatroom_websocket" type="58d84e3e:PackageViewProjectNode" />
-              <item name="mybatis" type="616d4139:PackageViewModuleNode" />
-              <item name="com" type="1f31426a:PackageElementNode" />
-              <item name="epochong" type="1f31426a:PackageElementNode" />
-            </path>
-            <path>
-              <item name="chatroom_websocket" type="58d84e3e:PackageViewProjectNode" />
-              <item name="spring_spel" type="616d4139:PackageViewModuleNode" />
-            </path>
-            <path>
-              <item name="chatroom_websocket" type="58d84e3e:PackageViewProjectNode" />
-              <item name="spring_spel" type="616d4139:PackageViewModuleNode" />
-              <item name="com" type="1f31426a:PackageElementNode" />
-            </path>
-            <path>
-              <item name="chatroom_websocket" type="58d84e3e:PackageViewProjectNode" />
-              <item name="spring_spel" type="616d4139:PackageViewModuleNode" />
-              <item name="com" type="1f31426a:PackageElementNode" />
-              <item name="epochong" type="1f31426a:PackageElementNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
       <pane id="AndroidView" />
       <pane id="Scope">
         <subPane subId="Project Files">
@@ -471,25 +501,6 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="chatroom_websocket" type="b2602c69:ProjectViewProjectNode" />
-              <item name="chatroom_websocket" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="epochong" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="chatroom_websocket" type="b2602c69:ProjectViewProjectNode" />
-              <item name="chatroom_websocket" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="epochong" type="462c0819:PsiDirectoryNode" />
               <item name="chatroom" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -498,8 +509,56 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="epochong" type="462c0819:PsiDirectoryNode" />
+              <item name="chatroom" type="462c0819:PsiDirectoryNode" />
+              <item name="application" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="chatroom_websocket" type="b2602c69:ProjectViewProjectNode" />
+              <item name="chatroom_websocket" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="chatroom" type="462c0819:PsiDirectoryNode" />
+              <item name="application" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="chatroom_websocket" type="b2602c69:ProjectViewProjectNode" />
+              <item name="chatroom_websocket" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="chatroom" type="462c0819:PsiDirectoryNode" />
+              <item name="application" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="chatroom_websocket" type="b2602c69:ProjectViewProjectNode" />
+              <item name="chatroom_websocket" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="chatroom" type="462c0819:PsiDirectoryNode" />
+              <item name="application" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+              <item name="impl" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="chatroom_websocket" type="b2602c69:ProjectViewProjectNode" />
+              <item name="chatroom_websocket" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="chatroom" type="462c0819:PsiDirectoryNode" />
+              <item name="application" type="462c0819:PsiDirectoryNode" />
+              <item name="websocket" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="chatroom_websocket" type="b2602c69:ProjectViewProjectNode" />
+              <item name="chatroom_websocket" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="chatroom" type="462c0819:PsiDirectoryNode" />
               <item name="config" type="462c0819:PsiDirectoryNode" />
             </path>
@@ -509,8 +568,6 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="epochong" type="462c0819:PsiDirectoryNode" />
               <item name="chatroom" type="462c0819:PsiDirectoryNode" />
               <item name="controller" type="462c0819:PsiDirectoryNode" />
             </path>
@@ -520,10 +577,9 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="epochong" type="462c0819:PsiDirectoryNode" />
               <item name="chatroom" type="462c0819:PsiDirectoryNode" />
-              <item name="dao" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+              <item name="assember" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="chatroom_websocket" type="b2602c69:ProjectViewProjectNode" />
@@ -531,9 +587,17 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="epochong" type="462c0819:PsiDirectoryNode" />
               <item name="chatroom" type="462c0819:PsiDirectoryNode" />
+              <item name="domian" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="chatroom_websocket" type="b2602c69:ProjectViewProjectNode" />
+              <item name="chatroom_websocket" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="chatroom" type="462c0819:PsiDirectoryNode" />
+              <item name="domian" type="462c0819:PsiDirectoryNode" />
               <item name="entity" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -542,10 +606,9 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="epochong" type="462c0819:PsiDirectoryNode" />
               <item name="chatroom" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
+              <item name="domian" type="462c0819:PsiDirectoryNode" />
+              <item name="value" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="chatroom_websocket" type="b2602c69:ProjectViewProjectNode" />
@@ -553,17 +616,27 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="epochong" type="462c0819:PsiDirectoryNode" />
               <item name="chatroom" type="462c0819:PsiDirectoryNode" />
-              <item name="utils" type="462c0819:PsiDirectoryNode" />
+              <item name="exception" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="chatroom_websocket" type="b2602c69:ProjectViewProjectNode" />
               <item name="chatroom_websocket" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="chatroom" type="462c0819:PsiDirectoryNode" />
+              <item name="repository" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="chatroom_websocket" type="b2602c69:ProjectViewProjectNode" />
+              <item name="chatroom_websocket" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="chatroom" type="462c0819:PsiDirectoryNode" />
+              <item name="repository" type="462c0819:PsiDirectoryNode" />
+              <item name="utils" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="chatroom_websocket" type="b2602c69:ProjectViewProjectNode" />
@@ -580,6 +653,147 @@
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
               <item name="assets" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="chatroom_websocket" type="b2602c69:ProjectViewProjectNode" />
+              <item name="chatroom_websocket" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+              <item name="img" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="chatroom_websocket" type="b2602c69:ProjectViewProjectNode" />
+              <item name="chatroom_websocket" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="chatroom_websocket" type="b2602c69:ProjectViewProjectNode" />
+              <item name="chatroom_websocket" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="chatroom_websocket" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+            </path>
+            <path>
+              <item name="chatroom_websocket" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="&lt; 1.8 &gt;" type="70bed36:NamedLibraryElementNode" />
+            </path>
+            <path>
+              <item name="chatroom_websocket" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="&lt; 1.8 &gt;" type="70bed36:NamedLibraryElementNode" />
+              <item name="rt.jar" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="chatroom_websocket" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="&lt; 1.8 &gt;" type="70bed36:NamedLibraryElementNode" />
+              <item name="rt.jar" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="chatroom_websocket" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="&lt; 1.8 &gt;" type="70bed36:NamedLibraryElementNode" />
+              <item name="rt.jar" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="lang" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="chatroom_websocket" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="&lt; 1.8 &gt;" type="70bed36:NamedLibraryElementNode" />
+              <item name="rt.jar" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="sql" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="chatroom_websocket" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="&lt; 1.8 &gt;" type="70bed36:NamedLibraryElementNode" />
+              <item name="rt.jar" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="util" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="chatroom_websocket" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="&lt; 1.8 &gt;" type="70bed36:NamedLibraryElementNode" />
+              <item name="rt.jar" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="util" type="462c0819:PsiDirectoryNode" />
+              <item name="concurrent" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="chatroom_websocket" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="&lt; 1.8 &gt;" type="70bed36:NamedLibraryElementNode" />
+              <item name="rt.jar" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="util" type="462c0819:PsiDirectoryNode" />
+              <item name="function" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="chatroom_websocket" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="Maven: com.google.code.gson:gson:2.8.5" type="70bed36:NamedLibraryElementNode" />
+            </path>
+            <path>
+              <item name="chatroom_websocket" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="Maven: com.google.code.gson:gson:2.8.5" type="70bed36:NamedLibraryElementNode" />
+              <item name="gson-2.8.5.jar" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="chatroom_websocket" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="Maven: com.google.code.gson:gson:2.8.5" type="70bed36:NamedLibraryElementNode" />
+              <item name="gson-2.8.5.jar" type="462c0819:PsiDirectoryNode" />
+              <item name="gson" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="PackagesPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="chatroom_websocket" type="58d84e3e:PackageViewProjectNode" />
+              <item name="mybatis" type="616d4139:PackageViewModuleNode" />
+            </path>
+            <path>
+              <item name="chatroom_websocket" type="58d84e3e:PackageViewProjectNode" />
+              <item name="mybatis" type="616d4139:PackageViewModuleNode" />
+              <item name="com" type="1f31426a:PackageElementNode" />
+            </path>
+            <path>
+              <item name="chatroom_websocket" type="58d84e3e:PackageViewProjectNode" />
+              <item name="mybatis" type="616d4139:PackageViewModuleNode" />
+              <item name="com" type="1f31426a:PackageElementNode" />
+              <item name="epochong" type="1f31426a:PackageElementNode" />
+            </path>
+            <path>
+              <item name="chatroom_websocket" type="58d84e3e:PackageViewProjectNode" />
+              <item name="spring_spel" type="616d4139:PackageViewModuleNode" />
+            </path>
+            <path>
+              <item name="chatroom_websocket" type="58d84e3e:PackageViewProjectNode" />
+              <item name="spring_spel" type="616d4139:PackageViewModuleNode" />
+              <item name="com" type="1f31426a:PackageElementNode" />
+            </path>
+            <path>
+              <item name="chatroom_websocket" type="58d84e3e:PackageViewProjectNode" />
+              <item name="spring_spel" type="616d4139:PackageViewModuleNode" />
+              <item name="com" type="1f31426a:PackageElementNode" />
+              <item name="epochong" type="1f31426a:PackageElementNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -588,20 +802,20 @@
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
-    <property name="SearchEverywhereHistoryKey" value="login&#9;PSI&#9;JAVA://com.epochong.chatroom.controller.LoginController&#10;用户名或密码&#9;null&#9;null" />
+    <property name="SearchEverywhereHistoryKey" value="LoginController.java:40&#9;FILE&#9;file://F:/Program/Java/Maven/Project/chatroom_websocket/src/main/java/com/epochong/chatroom/controller/LoginController.java&#10;/chat.ftl&#9;FILE&#9;file://F:/Program/Java/Maven/Project/chatroom_websocket/src/main/webapp/chat.ftl&#10;chat.ftl&#9;FILE&#9;file://F:/Program/Java/Maven/Project/chatroom_websocket/src/main/webapp/chat.ftl&#10;login&#9;PSI&#9;JAVA://com.epochong.chatroom.controller.LoginController&#10;用户名或密码&#9;null&#9;null" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
     <property name="database.console.LAST_STATE" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../IDEA/Arithmetic" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.35788563" />
-    <property name="settings.editor.selected.configurable" value="MavenSettings" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.RecentsKey">
@@ -612,9 +826,21 @@
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\Program\Java\Maven\chatroom_websocket\src\test\java" />
+      <recent name="F:\Program\Java\Maven\mybatis\mybatis_multilist\src" />
+      <recent name="F:\Program\Java\Maven\chatroom_websocket\src\main\webapp" />
+      <recent name="F:\Program\Java\Maven\chatroom_websocket\src\main\webapp\WEB-INF" />
+    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.epochong.chatroom" />
+      <recent name="com.epochong.chatroom.infrastructure.repository" />
       <recent name="com.epochong.chatroom.utils" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.epochong.chatroom.exception" />
+      <recent name="com.ming.vo" />
+      <recent name="" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="F:\Program\Java\Maven\chatroom_websocket\src\main\webapp" />
@@ -622,16 +848,6 @@
       <recent name="F:\Program\Java\Maven\mybatis\mybatis_multilist\src\main\java\com\epochong\po" />
       <recent name="F:\Program\Java\Maven\spring_mvc\src\main\webapp" />
       <recent name="F:\Program\Java\Maven\spring_mvc\src\main\resources" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.ming.vo" />
-      <recent name="" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="F:\Program\Java\Maven\chatroom_websocket\src\test\java" />
-      <recent name="F:\Program\Java\Maven\mybatis\mybatis_multilist\src" />
-      <recent name="F:\Program\Java\Maven\chatroom_websocket\src\main\webapp" />
-      <recent name="F:\Program\Java\Maven\chatroom_websocket\src\main\webapp\WEB-INF" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -646,7 +862,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.JDBCDemo1.test0">
+  <component name="RunManager" selected="Tomcat Server.chatroom_websocket">
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
     </configuration>
@@ -654,14 +870,14 @@
       <module name="chatroom_websocket" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.epochong.chatroom.dao.*" />
+          <option name="PATTERN" value="com.epochong.chatroom.infrastructure.repository.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="com.epochong.chatroom.dao" />
-      <option name="MAIN_CLASS_NAME" value="com.epochong.chatroom.dao.AccountDaoTest" />
+      <option name="PACKAGE_NAME" value="com.epochong.chatroom.infrastructure.repository.mapper" />
+      <option name="MAIN_CLASS_NAME" value="com.epochong.chatroom.infrastructure.repository.dao.AccountDaoTest" />
       <option name="METHOD_NAME" value="userRegister" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
@@ -677,14 +893,14 @@
       <module name="chatroom_websocket" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.epochong.chatroom.utils.*" />
+          <option name="PATTERN" value="com.epochong.chatroom.infrastructure.repository.utils.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="com.epochong.chatroom.utils" />
-      <option name="MAIN_CLASS_NAME" value="com.epochong.chatroom.utils.CommUtilsTest" />
+      <option name="PACKAGE_NAME" value="com.epochong.chatroom.infrastructure.repository.utils" />
+      <option name="MAIN_CLASS_NAME" value="com.epochong.chatroom.infrastructure.repository.utils.CommUtilsTest" />
       <option name="METHOD_NAME" value="gsonObjectToSerialize" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
@@ -700,14 +916,14 @@
       <module name="chatroom_websocket" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.epochong.chatroom.utils.*" />
+          <option name="PATTERN" value="com.epochong.chatroom.infrastructure.repository.utils.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="com.epochong.chatroom.utils" />
-      <option name="MAIN_CLASS_NAME" value="com.epochong.chatroom.utils.CommUtilsTest" />
+      <option name="PACKAGE_NAME" value="com.epochong.chatroom.infrastructure.repository.utils" />
+      <option name="MAIN_CLASS_NAME" value="com.epochong.chatroom.infrastructure.repository.utils.CommUtilsTest" />
       <option name="METHOD_NAME" value="gsonSerializeToObject" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
@@ -723,14 +939,14 @@
       <module name="chatroom_websocket" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.epochong.chatroom.utils.*" />
+          <option name="PATTERN" value="com.epochong.chatroom.infrastructure.repository.utils.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="com.epochong.chatroom.utils" />
-      <option name="MAIN_CLASS_NAME" value="com.epochong.chatroom.utils.CommUtilsTest" />
+      <option name="PACKAGE_NAME" value="com.epochong.chatroom.infrastructure.repository.utils" />
+      <option name="MAIN_CLASS_NAME" value="com.epochong.chatroom.infrastructure.repository.utils.CommUtilsTest" />
       <option name="METHOD_NAME" value="loadProperties" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
@@ -888,8 +1104,8 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="JUnit.AccountDaoTest.userRegister" />
       <item itemvalue="Tomcat Server.chatroom_websocket" />
+      <item itemvalue="JUnit.AccountDaoTest.userRegister" />
       <item itemvalue="JUnit.CommUtilsTest.loadProperties" />
       <item itemvalue="JUnit.CommUtilsTest.gsonObjectToSerialize" />
       <item itemvalue="JUnit.CommUtilsTest.gsonSerializeToObject" />
@@ -959,6 +1175,15 @@
       <workItem from="1571640421333" duration="111000" />
       <workItem from="1571646672692" duration="23000" />
       <workItem from="1572267663834" duration="327000" />
+      <workItem from="1573388583399" duration="1184000" />
+      <workItem from="1593171105305" duration="1149000" />
+      <workItem from="1596877094381" duration="245000" />
+      <workItem from="1597045946554" duration="65000" />
+      <workItem from="1620035737093" duration="5043000" />
+      <workItem from="1620041934599" duration="5592000" />
+      <workItem from="1620292685192" duration="2873000" />
+      <workItem from="1620461214782" duration="9285000" />
+      <workItem from="1620483993715" duration="49016000" />
     </task>
     <servers />
   </component>
@@ -995,7 +1220,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="214749000" />
+    <option name="totallyTimeSpent" value="289201000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1011,45 +1236,50 @@
     <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.32998565" />
-      <window_info anchor="right" id="Palette&#9;" order="6" />
-      <window_info id="Image Layers" order="2" />
-      <window_info anchor="bottom" id="Java Enterprise" order="7" weight="0.32998565" />
-      <window_info anchor="right" id="Capture Analysis" order="7" />
-      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.75769746" side_tool="true" weight="0.51506454" />
+      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.75838923" side_tool="true" weight="0.4058394" />
       <window_info anchor="bottom" id="Application Servers" order="8" weight="0.3543759" />
-      <window_info anchor="right" id="Maven Projects" order="4" sideWeight="0.4988864" weight="0.24029452" />
+      <window_info anchor="right" id="Maven Projects" order="4" sideWeight="0.4988864" weight="0.23994638" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="7" weight="0.32998565" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.24230254" weight="0.41319942" />
-      <window_info anchor="bottom" id="Terminal" order="7" weight="0.2195122" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="2" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49805447" visible="true" weight="0.30120483" />
-      <window_info id="Web" order="2" side_tool="true" />
       <window_info anchor="right" id="Database" order="5" sideWeight="0.4988864" weight="0.23761714" />
       <window_info id="Structure" order="1" sideWeight="0.50071734" side_tool="true" weight="0.19946453" />
       <window_info anchor="right" id="Ant Build" order="1" sideWeight="0.4988864" weight="0.24966533" />
       <window_info id="UI Designer" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49933067" weight="0.5285505" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32998565" />
+      <window_info anchor="bottom" id="Messages" order="7" weight="0.33821377" />
+      <window_info anchor="right" id="Palette&#9;" order="6" />
+      <window_info id="Image Layers" order="2" />
+      <window_info anchor="bottom" id="Java Enterprise" order="7" weight="0.32998565" />
+      <window_info anchor="right" id="Capture Analysis" order="7" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.24161074" visible="true" weight="0.24597365" />
+      <window_info anchor="bottom" id="Version Control" order="7" weight="0.32998565" />
+      <window_info anchor="right" id="Mybatis datasource" order="8" show_stripe_button="false" side_tool="true" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.39385065" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49805447" visible="true" weight="0.230563" />
+      <window_info id="Web" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.33674964" />
       <window_info anchor="right" id="Theme Preview" order="8" />
       <window_info id="Favorites" order="2" sideWeight="0.5019455" side_tool="true" weight="0.4634483" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49933067" weight="0.38163558" />
+      <window_info id="设计师" order="2" />
       <window_info anchor="bottom" id="Inspection Results" order="8" weight="0.32946298" />
       <window_info anchor="right" id="Coverage" order="8" side_tool="true" weight="0.32931727" />
       <window_info anchor="right" id="JSF" order="9" weight="0.32931727" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" x="0" y="0" width="337" height="648" id="Documentation" order="12" sideWeight="0.5011136" side_tool="true" weight="0.24966533" />
+      <window_info anchor="bottom" id="调试" order="7" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="right" id="Bean Validation" order="10" weight="0.32931727" />
+      <window_info anchor="right" id="控制板" order="3" />
       <window_info anchor="bottom" id="Thumbnails" order="8" weight="0.32946298" />
+      <window_info anchor="bottom" id="运行" order="7" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="CDI" order="11" weight="0.32931727" />
       <window_info anchor="bottom" id="Database Console" order="7" weight="0.36011478" />
       <window_info anchor="bottom" id="Spring" order="8" weight="0.32998565" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.33715925" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="bottom" id="Messages" order="7" weight="0.28120518" />
       <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="right" id="Bean Validation" order="10" weight="0.32931727" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1060,7 +1290,27 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="24" />
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/epochong/chatroom/application/websocket/WebSocketService.java</url>
+          <line>104</line>
+          <properties />
+          <option name="timeStamp" value="34" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/epochong/chatroom/application/websocket/WebSocketService.java</url>
+          <line>63</line>
+          <properties />
+          <option name="timeStamp" value="40" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/epochong/chatroom/application/websocket/WebSocketService.java</url>
+          <line>81</line>
+          <properties />
+          <option name="timeStamp" value="41" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="42" />
     </breakpoint-manager>
   </component>
   <component name="antWorkspaceConfiguration">
@@ -1068,324 +1318,407 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/resources/db.properties" />
-    <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.11/junit-4.11-sources.jar!/org/junit/Assert.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/javax/websocket/javax.websocket-api/1.1/javax.websocket-api-1.1-sources.jar!/javax/websocket/RemoteEndpoint.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="141">
-          <caret line="619" column="23" selection-start-line="619" selection-start-column="23" selection-end-line="619" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/sql/DriverManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-125">
-          <caret line="27" column="26" lean-forward="true" selection-start-line="27" selection-start-column="26" selection-end-line="27" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/javax/sql/DataSource.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="76" column="17" selection-start-line="76" selection-start-column="17" selection-end-line="76" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/javax/naming/spi/ObjectFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="385">
-          <caret line="170" column="26" lean-forward="true" selection-start-line="170" selection-start-column="26" selection-end-line="170" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/alibaba/druid/1.1.13/druid-1.1.13.jar!/com/alibaba/druid/pool/DruidDataSourceFactory.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="143">
-          <caret line="92" column="23" selection-start-line="92" selection-start-column="13" selection-end-line="92" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/com/alibaba/druid/1.1.13/druid-1.1.13.jar!/com/alibaba/druid/pool/DruidDataSource.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-75">
-          <caret line="90" column="13" selection-start-line="90" selection-start-column="13" selection-end-line="90" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/lib/platform-impl.jar!/resources/html5-schema/html5/core-scripting.rnc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="456">
-          <caret line="245" column="18" selection-start-line="245" selection-start-column="18" selection-end-line="245" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/assets/css/common_form.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="16" column="1" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$MAVEN_REPOSITORY$/org/apache/commons/commons-io/1.3.2/commons-io-1.3.2.pom">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/epochong/chatroom/entity/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-75">
-          <caret line="15" column="36" lean-forward="true" selection-start-line="15" selection-start-column="36" selection-end-line="15" selection-end-column="36" />
+        <state relative-caret-position="205">
+          <caret line="281" column="13" selection-start-line="281" selection-start-column="13" selection-end-line="281" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/assets/js/common_form_test.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="511">
-          <caret line="50" column="78" lean-forward="true" selection-start-line="50" selection-start-column="78" selection-end-line="50" selection-end-column="78" />
+        <state relative-caret-position="205">
+          <caret line="41" column="9" selection-start-line="41" selection-start-column="9" selection-end-line="41" selection-end-column="9" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/lib/platform-impl.jar!/resources/html5-schema/html5/meta.rnc">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/epochong/chatroom/controller/vo/LoginVo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="199">
-          <caret line="180" column="22" selection-start-line="180" selection-start-column="22" selection-end-line="180" selection-end-column="22" />
+        <state relative-caret-position="289">
+          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/assets/img/robot.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/epochong/chatroom/dao/BaseDao.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/freemarker/freemarker/2.3.28/freemarker-2.3.28.jar!/freemarker/template/Template.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="24" selection-start-line="24" selection-end-line="24" />
+        <state relative-caret-position="196">
+          <caret line="189" column="16" selection-start-line="189" selection-start-column="16" selection-end-line="189" selection-end-column="16" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/javax/websocket/javax.websocket-api/1.1/javax.websocket-api-1.1-sources.jar!/javax/websocket/OnOpen.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/javax/websocket/javax.websocket-api/1.1/javax.websocket-api-1.1-sources.jar!/javax/websocket/Session.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="40" lean-forward="true" selection-start-line="40" selection-end-line="40" />
+        <state relative-caret-position="147">
+          <caret line="71" column="17" selection-start-line="71" selection-start-column="17" selection-end-line="71" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/javax/websocket/javax.websocket-api/1.1/javax.websocket-api-1.1-sources.jar!/javax/websocket/RemoteEndpoint.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/websocketTest.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="283" column="11" lean-forward="true" selection-start-line="283" selection-start-column="11" selection-end-line="283" selection-end-column="11" />
+        <state relative-caret-position="272">
+          <caret line="22" column="69" selection-start-line="22" selection-start-column="69" selection-end-line="22" selection-end-column="69" />
         </state>
       </provider>
     </entry>
-    <entry file="das://c4d859f9-ec24-4a9d-a449-ed8f82406b02/schema/chatroom_websocket/table/user" />
-    <entry file="das://c4d859f9-ec24-4a9d-a449-ed8f82406b02/schema/mybatis_multilist/table/user" />
-    <entry file="jar://$MAVEN_REPOSITORY$/commons-codec/commons-codec/1.11/commons-codec-1.11.jar!/org/apache/commons/codec/digest/DigestUtils.class">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor />
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/epochong/chatroom/entity/Message2Client.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/epochong/chatroom/infrastructure/repository/utils/JdbcUtils.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="25">
-          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/epochong/chatroom/entity/MessageFromClient.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="25">
-          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$MAVEN_REPOSITORY$/commons-codec/commons-codec/1.11/commons-codec-1.11.pom">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/commons-codec/commons-codec/1.11/commons-codec-1.11-sources.jar!/org/apache/commons/codec/digest/DigestUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/epochong/chatroom/dao/AccountDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/javax/websocket/javax.websocket-api/1.1/javax.websocket-api-1.1-sources.jar!/javax/websocket/OnMessage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="127" column="22" selection-start-line="127" selection-start-column="22" selection-end-line="127" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/epochong/chatroom/service/AccountService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/epochong/chatroom/service/WebSocket.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3800">
-          <caret line="165" column="55" selection-start-line="165" selection-start-column="12" selection-end-line="165" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/freemarker/freemarker/2.3.28/freemarker-2.3.28.jar!/freemarker/template/Configuration.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23575">
-          <caret line="1087" column="20" selection-start-line="1087" selection-start-column="20" selection-end-line="1087" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external/lib.dom.d.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="369100">
-          <caret line="14777" column="4" selection-start-line="14777" selection-start-column="4" selection-end-line="14777" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/chat.ftl">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2125">
-          <caret line="85" column="25" selection-start-line="85" selection-start-column="25" selection-end-line="85" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/epochong/chatroom/config/FreeMarkerListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="325">
-          <caret line="20" column="13" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/epochong/chatroom/controller/AccountController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1175">
-          <caret line="47" column="31" selection-start-line="44" selection-start-column="27" selection-end-line="47" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="550">
-          <caret line="22" column="16" selection-start-line="22" selection-start-column="16" selection-end-line="22" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/epochong/chatroom/controller/AccountControllerTest.java" />
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/epochong/chatroom/dao/AccountDaoTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="825">
-          <caret line="37" column="58" selection-start-line="37" selection-start-column="58" selection-end-line="37" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/epochong/chatroom/utils/CommUtilsTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="825">
-          <caret line="39" column="9" selection-start-line="39" selection-start-column="9" selection-end-line="39" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="3" column="3" selection-start-line="3" selection-start-column="3" selection-end-line="3" selection-end-column="3" />
+        <state relative-caret-position="85">
+          <caret line="6" column="20" selection-start-line="6" selection-start-column="20" selection-end-line="6" selection-end-column="20" />
           <folding>
-            <element signature="n#style#0;n#span#0;n#a#0;n#li#0;n#div#3;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/registration.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="3" column="26" selection-start-line="3" selection-start-column="26" selection-end-line="3" selection-end-column="26" />
+        <state relative-caret-position="612">
+          <caret line="36" column="35" lean-forward="true" selection-start-line="36" selection-start-column="35" selection-end-line="36" selection-end-column="35" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/text.html">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="10" column="9" selection-start-line="10" selection-start-column="9" selection-end-line="10" selection-end-column="9" />
+        <state relative-caret-position="323">
+          <caret line="19" column="38" lean-forward="true" selection-start-line="19" selection-start-column="38" selection-end-line="19" selection-end-column="38" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/websocketTest.html">
+    <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external/lib.es5.d.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="14" column="59" selection-start-line="14" selection-start-column="59" selection-end-line="14" selection-end-column="59" />
+        <state relative-caret-position="171">
+          <caret line="990" column="14" selection-start-line="990" selection-start-column="14" selection-end-line="990" selection-end-column="14" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/epochong/chatroom/controller/LoginController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/assets/img/2.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/assets/js/jquery_min.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="41" column="20" selection-start-line="41" selection-start-column="20" selection-end-line="42" selection-end-column="35" />
+        <state relative-caret-position="174">
+          <caret line="4" column="5780" selection-start-line="4" selection-start-column="5780" selection-end-line="4" selection-end-column="5780" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/mysql/mysql-connector-java/8.0.16/mysql-connector-java-8.0.16-sources.jar!/com/mysql/cj/jdbc/exceptions/SQLError.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/epochong/chatroom/infrastructure/repository/utils/JdbcUtils1.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="62">
-          <caret line="119" selection-start-line="119" selection-end-line="119" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/mysql/mysql-connector-java/8.0.16/mysql-connector-java-8.0.16-sources.jar!/com/mysql/cj/jdbc/exceptions/SQLExceptionsMapping.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1850">
-          <caret line="121" selection-start-line="121" selection-end-line="121" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/datasource.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="25">
-          <caret line="1" column="2" selection-start-line="1" selection-start-column="2" selection-end-line="1" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/epochong/chatroom/utils/CommUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="421">
-          <caret line="58" column="32" selection-start-line="58" selection-start-column="32" selection-end-line="58" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/epochong/chatroom/utils/JdbcUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-16">
-          <caret line="23" column="57" selection-start-line="23" selection-start-column="57" selection-end-line="23" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/epochong/chatroom/utils/JdbcUtils1.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="18" lean-forward="true" selection-start-line="20" selection-start-column="18" selection-end-line="20" selection-end-column="18" />
+        <state relative-caret-position="204">
+          <caret line="20" column="19" lean-forward="true" selection-start-line="20" selection-start-column="19" selection-end-line="20" selection-end-column="19" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/JDBCDemo1.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
+        <state relative-caret-position="601">
           <caret line="92" column="25" selection-start-line="92" selection-start-column="25" selection-end-line="92" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="218">
+          <caret line="88" column="17" selection-start-line="88" selection-start-column="17" selection-end-line="88" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/logback-spring.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="73" lean-forward="true" selection-start-line="13" selection-start-column="73" selection-end-line="13" selection-end-column="73" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/datasource.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="28" lean-forward="true" selection-start-line="14" selection-start-column="28" selection-end-line="14" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/epochong/chatroom/infrastructure/repository/BaseDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="27" lean-forward="true" selection-start-line="16" selection-start-column="27" selection-end-line="16" selection-end-column="27" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/epochong/chatroom/config/FreeMarkerListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="41" column="33" lean-forward="true" selection-start-line="41" selection-start-column="33" selection-end-line="41" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/epochong/chatroom/domian/value/BaseResp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/epochong/chatroom/controller/AccountController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="429">
+          <caret line="41" column="54" selection-start-line="41" selection-start-column="54" selection-end-line="41" selection-end-column="54" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/epochong/chatroom/application/command/service/impl/AccountCommandServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="26" column="34" lean-forward="true" selection-start-line="26" selection-start-column="34" selection-end-line="26" selection-end-column="34" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/sql/Connection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="213">
+          <caret line="939" column="22" selection-start-line="939" selection-start-column="22" selection-end-line="939" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/sql/PreparedStatement.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="213">
+          <caret line="76" column="14" selection-start-line="76" selection-start-column="14" selection-end-line="76" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/sql/ResultSet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="213">
+          <caret line="147" column="17" selection-start-line="147" selection-start-column="17" selection-end-line="147" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/epochong/chatroom/controller/dto/LoginDto.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/lang/Integer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="213">
+          <caret line="972" column="19" selection-start-line="972" selection-start-column="19" selection-end-line="972" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/epochong/chatroom/domian/entity/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/epochong/chatroom/exception/ResourceException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="4" selection-start-line="12" selection-start-column="4" selection-end-line="12" selection-end-column="4" />
+          <folding>
+            <element signature="e#659#660#0" expanded="true" />
+            <element signature="e#691#692#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/epochong/chatroom/infrastructure/repository/AccountDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="20" column="16" selection-start-line="20" selection-start-column="16" selection-end-line="20" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/epochong/chatroom/controller/assember/UserAssembler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="446">
+          <caret line="51" column="30" lean-forward="true" selection-start-line="51" selection-start-column="30" selection-end-line="51" selection-end-column="30" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/epochong/chatroom/application/query/service/AccountQueryService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/epochong/chatroom/application/query/service/impl/AccountQueryServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="257">
+          <caret line="22" column="20" selection-start-line="22" selection-start-column="20" selection-end-line="22" selection-end-column="20" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/epochong/chatroom/application/command/service/AccountCommandService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="20" selection-start-line="19" selection-start-column="20" selection-end-line="19" selection-end-column="20" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/epochong/chatroom/infrastructure/repository/utils/Constant.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="21">
+          <caret line="9" column="17" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/util/Map.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="211" column="6" selection-start-line="211" selection-start-column="6" selection-end-line="211" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/util/function/Predicate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="159">
+          <caret line="48" column="12" selection-start-line="48" selection-start-column="12" selection-end-line="48" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/util/function/Consumer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="159">
+          <caret line="48" column="9" selection-start-line="48" selection-start-column="9" selection-end-line="48" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/epochong/chatroom/domian/value/MessageFromClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="19" selection-start-line="16" selection-start-column="19" selection-end-line="16" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/util/concurrent/CopyOnWriteArraySet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="213">
+          <caret line="95" column="50" selection-start-line="95" selection-start-column="50" selection-end-line="95" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_131/src.zip!/java/util/AbstractSet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="298">
+          <caret line="62" column="29" lean-forward="true" selection-start-line="62" selection-start-column="29" selection-end-line="62" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/assets/img/robot2.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/com/google/code/gson/gson/2.8.5/gson-2.8.5.jar!/com/google/gson/Gson.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="213">
+          <caret line="378" column="33" selection-start-line="378" selection-start-column="33" selection-end-line="378" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/epochong/chatroom/infrastructure/repository/utils/CommUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="222">
+          <caret line="56" column="23" lean-forward="true" selection-start-line="56" selection-start-column="23" selection-end-line="56" selection-end-column="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1365#1366#0" expanded="true" />
+            <element signature="e#1404#1405#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/epochong/chatroom/application/websocket/WebSocketService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="85" column="69" selection-start-line="85" selection-start-column="62" selection-end-line="85" selection-end-column="69" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2703#2704#0" expanded="true" />
+            <element signature="e#2745#2746#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external/lib.dom.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="15870" column="12" selection-start-line="15870" selection-start-column="12" selection-end-line="15870" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/chat.ftl">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="99" column="27" lean-forward="true" selection-start-line="99" selection-start-column="27" selection-end-line="99" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/epochong/chatroom/controller/assember/MessageAssembler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="254">
+          <caret line="26" column="23" selection-start-line="26" selection-start-column="23" selection-end-line="26" selection-end-column="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/epochong/chatroom/controller/LoginController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="124">
+          <caret line="66" column="32" selection-start-line="66" selection-start-column="32" selection-end-line="66" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/epochong/chatroom/domian/value/Message2Client.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#689#690#0" expanded="true" />
+            <element signature="e#740#741#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/epochong/chatroom/infrastructure/repository/utils/UserUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="156">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -1395,7 +1728,7 @@
       <state key="ArtifactsStructureConfigurable.UI">
         <settings>
           <artifact-editor />
-          <last-edited>chatroom_websocket:war exploded</last-edited>
+          <last-edited>chatroom_websocket:war</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

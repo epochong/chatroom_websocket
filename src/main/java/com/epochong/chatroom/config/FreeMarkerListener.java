@@ -28,6 +28,8 @@ public class FreeMarkerListener implements ServletContextListener {
 
     /**
      * 当项目启动的时候tomcat会自动调用
+     * 当Servlet 容器启动Web 应用时调用该方法。在调用完该方法之后，容器再对Filter 初始化，
+     * 并且对那些在Web 应用启动时就需要被初始化的Servlet 进行初始化。
      * @param sce
      */
     @Override
@@ -36,7 +38,7 @@ public class FreeMarkerListener implements ServletContextListener {
         Configuration cfg = new Configuration(Configuration.VERSION_2_3_0);
         //配置加载ftl路径
         try {
-            cfg.setDirectoryForTemplateLoading(new File("F:\\Program\\Java\\Maven\\chatroom_websocket\\src\\main\\webapp"));
+            cfg.setDirectoryForTemplateLoading(new File("F:\\Program\\Java\\Maven\\Project\\chatroom_websocket\\src\\main\\webapp"));
         } catch (IOException e) {
             e.printStackTrace();
         }

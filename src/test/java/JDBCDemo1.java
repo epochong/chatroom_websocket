@@ -1,5 +1,5 @@
-import com.epochong.chatroom.utils.JdbcUtils;
-import com.epochong.chatroom.utils.JdbcUtils1;
+import com.epochong.chatroom.infrastructure.repository.utils.JdbcUtils;
+import com.epochong.chatroom.infrastructure.repository.utils.JdbcUtils1;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.junit.Assert;
 import org.junit.Test;

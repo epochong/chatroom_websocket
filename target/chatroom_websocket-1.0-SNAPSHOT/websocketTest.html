@@ -13,7 +13,6 @@
     <div id="read_from_server"></div>
     <hr>
     <button onclick="closeWebSocket()">关闭websocket</button>
-
     <script>
         /*大部分浏览器都是支持websocket的除了老版本的IE浏览器所以要判断一下*/
         var websocket = null;
@@ -28,7 +27,7 @@
         // 浏览器与服务端建立链接后回调方法
         websocket.onopen = function() {
             /*输出到控制台，日志，和弹窗差不多*/
-            console.log("websocket连接成功");
+            console.log("websocket.onopen():websocket连接成功");
         };
         // 建立websocket失败
         websocket.onerror = function() {
