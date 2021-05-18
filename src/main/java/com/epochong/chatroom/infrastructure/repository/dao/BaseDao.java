@@ -1,4 +1,4 @@
-package com.epochong.chatroom.infrastructure.repository;
+package com.epochong.chatroom.infrastructure.repository.dao;
 
 import com.alibaba.druid.pool.DruidDataSourceFactory;
 import com.epochong.chatroom.infrastructure.repository.utils.CommUtils;

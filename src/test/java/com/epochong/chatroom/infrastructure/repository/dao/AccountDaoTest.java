@@ -1,7 +1,7 @@
 package com.epochong.chatroom.infrastructure.repository.dao;
 
+import com.epochong.chatroom.controller.dto.LoginDto;
 import com.epochong.chatroom.domian.entity.User;
-import com.epochong.chatroom.infrastructure.repository.AccountDao;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -34,7 +34,10 @@ public class AccountDaoTest {
      */
     @Test
     public void userLogin() {
-        User user = accountDao.userLogin("test2","test2");
+        LoginDto loginDto = new LoginDto();
+        loginDto.setUsername("test");
+        loginDto.setPassword("test");
+        User user = accountDao.userLogin(loginDto);
         Assert.assertNotNull(user);
     }
 }

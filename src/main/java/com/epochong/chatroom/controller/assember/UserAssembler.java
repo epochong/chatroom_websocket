@@ -8,6 +8,7 @@ import org.apache.commons.lang.StringUtils;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Map;
 import java.util.Objects;
 
 /**
@@ -48,6 +49,15 @@ public class UserAssembler {
         user.setUserType(resultSet.getInt("user_type"));
         return user;
     }
+
+    public static User getUser(Map<String, String> urlParams) {
+        User user = new User();
+        user.setId(Integer.parseInt(urlParams.get("id")));
+        user.setUserName(urlParams.get("username"));
+        user.setUserType(Integer.parseInt(urlParams.get("userType")));
+        return user;
+    }
+
 
     public static String verifyParams(LoginVo vo) {
         if (StringUtils.isEmpty(vo.getUsername()) || StringUtils.isEmpty(vo.getPassword())) {

@@ -6,6 +6,7 @@ import com.epochong.chatroom.config.FreeMarkerListener;
 import com.epochong.chatroom.controller.assember.UserAssembler;
 import com.epochong.chatroom.controller.dto.LoginDto;
 import com.epochong.chatroom.controller.vo.LoginVo;
+import com.epochong.chatroom.domian.entity.User;
 import com.epochong.chatroom.domian.value.BaseResp;
 import com.epochong.chatroom.infrastructure.repository.utils.Constant;
 import com.epochong.chatroom.infrastructure.repository.utils.UserUtils;
@@ -66,6 +67,8 @@ public class LoginController extends HttpServlet {
             Map<String, String> map = new HashMap<>();
             map.put("username", UserUtils.getUserName(loginVo.getUsername(), loginVo.getUserType()));
             map.put("userType", String.valueOf(loginVo.getUserType()));
+            User user = (User) baseResp.getObject();
+            map.put("id", String.valueOf(user.getId()));
             try {
                 //交给前端处理，out前端响应
                 template.process(map, out);

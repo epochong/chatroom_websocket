@@ -14,6 +14,12 @@
 
 <div class="qqBox">
     <div class="context">
+        <button>
+            机器人问题管理
+        </button>
+        <button>
+            工作时间配置
+        </button>
         <div class="conLeft">
             <ul id="userList">
             </ul>
@@ -23,6 +29,7 @@
                 <#--从后端传来用户名的值-->
                 <div id="headName" class="headName">${username}</div>
                 <input id="userType" type="hidden" value="${userType}">
+                <input id="id" type="hidden" value="${id}">
             </div>
             <div class="RightCont">
                 <ul class="newsList" id="message">
@@ -61,7 +68,7 @@
         * session.getQueryString()获取所有的值
         * 如果有多个则是username=username & password =
         * */
-        webSocketService = new WebSocket('ws://127.0.0.1:8087/websocket?username=' + '${username}' + '&userType=' + '${userType}');
+        webSocketService = new WebSocket('ws://127.0.0.1:8087/websocket?username=' + '${username}' + '&userType=' + '${userType}' + '&id=' + '${id}');
     } else {
         alert("当前浏览器不支持WebSocket");
     }
@@ -76,18 +83,22 @@
     };
 
     webSocketService.onmessage = function (event) {
-        console.log("onmessage-username:" + $("#headName").val());
+        console.log("onmessage-username:" + $("#headName").text());
         $("#userList").html("");
         eval("var msg=" + event.data + ";");
 
         if (undefined != msg.content) {
+            // 客服或者机器人
             if (msg.userType == "1") {
                 console.log("rightMessage")
                 setRightMessage(msg.content);
-            } 
+            }
             if (msg.userType == "2") {
                 console.log("leftMessage")
                 setLeftMessage(msg.content);
+            }
+            if (msg.userType == "3") {
+                setRightRobotMessage(msg.content);
             }
         }
 
@@ -95,23 +106,26 @@
             $.each(msg.names, function (key, value) {
                 console.log("names.value.indexOf:" + value.indexOf("用户"));
                 console.log("names-each-userType:" + $("#userType").val());
+                // 客户只渲染客服列表，客服渲染处自己外的所有客服和客户的列表
                 if (!($("#userType").val() == 2 && value.indexOf("用户") == 0)) {
-                    console.log("onmessage-username:" + $("#headName").val() + "进来了")
-                    // 左侧列表
-                    var htmlstr =
-                            '<li>'
+                    console.log("onmessage-username:" + $("#headName").text() + "进来了")
+                    if (value != $("#headName").text()) {
+                        // 左侧列表
+                        var htmlstr =
+                                '<li>'
                                 + '<div class="checkbox checkbox-success checkbox-inline">'
-                                    + '<input type="checkbox" class="styled" id="' + key + '" value="' + key + '" checked>'
-                                    + '<label for="' + key + '"></label>'
+                                + '<input type="checkbox" class="styled" id="' + key + '" value="' + key + '" checked>'
+                                + '<label for="' + key + '"></label>'
                                 + '</div>'
                                 + '<div class="liLeft">' +
-                                     '<img src="assets/img/robot2.jpg"/>' +
-                                  '</div>'
+                                '<img src="assets/img/robot2.jpg"/>' +
+                                '</div>'
                                 + '<div class="liRight">'
-                                    + '<span class="intername">' + value + '</span>'
+                                + '<span class="intername">' + value + '</span>'
                                 + '</div>'
-                            + '</li>'
-                    $("#userList").append(htmlstr);
+                                + '</li>'
+                        $("#userList").append(htmlstr);
+                    }
                 }
             })
         }
@@ -129,7 +143,7 @@
     function send() {
         var userType = $("#userType").val();
         console.log("userType:" + userType);
-        var message = $("#dope").val();
+        var message = $("#dope").val().replace(/[\r\n]/g,"");
         $("#dope").val("");
         if (userType == "1") {
             sendRightMessage(message);
@@ -148,12 +162,13 @@
 
     //将消息显示在网页上
     function setLeftMessage(innerHTML) {
+        var time = new Date().toLocaleString();
         var msg = '<li>'
                 + '<div class="nesHead">'
-                + '<img src="assets/img/robot.jpg">'
+                + '<img src="assets/img/yonghu.gif">'
                 + ' </div>'
-                + '<div class="news">'
-                + innerHTML
+                + '<div class="answers">'
+                    + time + '<br/>' + innerHTML
                 + '</div>'
                 + '</li>';
         $("#message").append(msg);
@@ -162,8 +177,23 @@
     function setRightMessage(innerHTML) {
         var time = new Date().toLocaleString();
         //发送消息
-        var msg = '<li><div class="answerHead"><img src="assets/img/2.png"></div><div class="answers">'
-                + '[客服]' + '   ' + time + '<br/>' + innerHTML + '</div></li>';
+        var msg = '<li>' +
+                    '<div class="answerHead">' +
+                        '<img src="assets/img/kefu.gif">' +
+                    '</div>' +
+                    '<div class="answers" style="background:#A9F5BC; color:#000;" >'
+                        + '[客服]' + '   ' + time + '<br/>'
+                        + innerHTML +
+                    '</div>'
+                    + '</li>';
+        $("#message").append(msg);
+    }
+
+    function setRightRobotMessage(innerHTML) {
+        var time = new Date().toLocaleString();
+        //发送消息
+        var msg = '<li><div class="answerHead"><img src="assets/img/robot.gif"></div><div class="answers" style="background:#819FF7; color:#000;" >'
+                + '[机器人]' + '   ' + time + '<br/>' + innerHTML + '</div></li>';
         $("#message").append(msg);
     }
 

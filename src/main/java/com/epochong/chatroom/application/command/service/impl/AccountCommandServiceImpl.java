@@ -5,7 +5,7 @@ import com.epochong.chatroom.controller.dto.LoginDto;
 import com.epochong.chatroom.domian.entity.User;
 import com.epochong.chatroom.domian.value.BaseResp;
 import com.epochong.chatroom.exception.ResourceException;
-import com.epochong.chatroom.infrastructure.repository.AccountDao;
+import com.epochong.chatroom.infrastructure.repository.dao.AccountDao;
 
 /**
  * @author wangchong.epochong

@@ -109,5 +109,17 @@
       <version>5.2.0</version>
       <scope>test</scope>
     </dependency>
+    <dependency>
+      <groupId>com.baidu.aip</groupId>
+      <artifactId>java-sdk</artifactId>
+      <version>4.15.7</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/org.springframework/spring-core -->
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-core</artifactId>
+      <version>5.2.9.RELEASE</version>
+    </dependency>
+
   </dependencies>
 </project>

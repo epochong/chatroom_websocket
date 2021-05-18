@@ -2,6 +2,7 @@ package com.epochong.chatroom.domian.value;
 
 import lombok.Data;
 
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -25,6 +26,10 @@ public class Message2Client {
      * 用户类型，用于区分客服还是用户
      */
     private String userType;
+    /**
+     * 消息类型
+     */
+    private Integer messageType;
 
     /**
      * 发送者调用
@@ -33,5 +38,27 @@ public class Message2Client {
      */
     public void setContent(String userName,String msg, String userType) {
         this.content = userName + "说：" + msg;
+    }
+
+    public interface MessageType {
+        Map<Integer, String> NAMES = new HashMap<Integer, String>() {{
+            int AUTO = 1;
+            int SELF = 2;
+
+            put(AUTO, "自动回复");
+            put(SELF, "自主发送");
+        }};
+    }
+
+    public interface UserType {
+        Map<String, String> NAMES = new HashMap<String, String>() {{
+            String FROM_USER = "客服";
+            String TO_USER = "用户";
+            String ROBOT = "机器";
+
+            put(FROM_USER, "1");
+            put(TO_USER, "2");
+            put(ROBOT, "3");
+        }};
     }
 }

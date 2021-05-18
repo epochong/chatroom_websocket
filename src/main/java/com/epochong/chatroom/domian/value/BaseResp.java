@@ -14,9 +14,23 @@ import lombok.Data;
 public class BaseResp {
     int code;
     String message;
+    Object object;
+
+    public BaseResp() {
+    }
 
     public BaseResp(ResourceException resource) {
         this.code = resource.getCode();
         this.message = resource.getMessage();
+    }
+
+    public static BaseResp getSuccessResp() {
+        BaseResp baseResp = new BaseResp(ResourceException.SUCCESS);
+        return baseResp;
+    }
+
+    public static BaseResp getFailResp() {
+        BaseResp baseResp = new BaseResp(ResourceException.SYSTEM_ERROR);
+        return baseResp;
     }
 }

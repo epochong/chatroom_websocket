@@ -5,7 +5,7 @@ import com.epochong.chatroom.controller.dto.LoginDto;
 import com.epochong.chatroom.domian.entity.User;
 import com.epochong.chatroom.domian.value.BaseResp;
 import com.epochong.chatroom.exception.ResourceException;
-import com.epochong.chatroom.infrastructure.repository.AccountDao;
+import com.epochong.chatroom.infrastructure.repository.dao.AccountDao;
 import com.epochong.chatroom.infrastructure.repository.utils.Constant;
 
 /**
@@ -21,7 +21,7 @@ public class AccountQueryServiceImpl implements AccountQueryService {
 
     @Override
     public BaseResp userLogin(LoginDto loginDto) {
-        User user = accountDao.userLogin(loginDto.getUsername(), loginDto.getPassword());
+        User user = accountDao.userLogin(loginDto);
         if (user == null) {
             return new BaseResp(ResourceException.ACCOUNT_NOT_CORRECT);
         }
@@ -31,6 +31,8 @@ public class AccountQueryServiceImpl implements AccountQueryService {
         if (user.getUserType().equals(Constant.INT_FROM_USER_TYPE) && loginDto.getUserType().equals(Constant.INT_TO_USER_TYPE)) {
             return new BaseResp(ResourceException.NOT_TO_USER);
         }
-        return new BaseResp(ResourceException.SUCCESS);
+        BaseResp baseResp = new BaseResp(ResourceException.SUCCESS);
+        baseResp.setObject(user);
+        return baseResp;
     }
 }

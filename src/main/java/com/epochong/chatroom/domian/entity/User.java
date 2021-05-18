@@ -26,6 +26,7 @@ public class User {
     private String userName;
     private String password;
     private Integer userType;
+    private String city;
 
     public interface UserType {
         Map<Integer, String> NAMES = new HashMap<Integer, String>() {{
