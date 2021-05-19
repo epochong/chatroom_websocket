@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="Access-Control-Allow-Origin" content="*">
-    <title>chatroom_websocket</title>
+    <title>智能客服系统</title>
     <link rel="stylesheet" href="assets/css/bootstrap.css"/>
     <link rel="stylesheet" href="assets/css/font-awesome.min.css"/>
     <link rel="stylesheet" href="assets/css/build.css"/>
@@ -13,6 +13,10 @@
 <body>
 
 <div class="qqBox">
+    <div id="topConfig" class="btn-wrap">
+        <div class="problem" onclick="goToRobotConfig()">机器人问题管理</div>
+        <#--<div class="time" onclick="goToNoteConfig">工作时间配置</div>-->
+    </div>
     <div class="context">
         <div class="conLeft">
             <ul id="userList">
@@ -25,7 +29,7 @@
                 <input id="userType" type="hidden" value="${userType}">
                 <input id="id" type="hidden" value="${id}">
             </div>
-            <div class="RightCont">
+            <div id="rightCont" class="RightCont">
                 <ul class="newsList" id="message">
 
                 </ul>
@@ -74,6 +78,12 @@
 
     webSocketService.onopen = function () {
         //setLeftMessage("WebSocket连接成功！")
+        if ($("#userType").val() == 1)  {
+            document.getElementById("topConfig").style.display="";//显示
+        } else {
+            document.getElementById("topConfig").style.display="none";//隐藏
+        }
+        document.getElementById('rightCont').scrollTop = document.getElementById('rightCont').scrollHeight;
     };
 
     webSocketService.onmessage = function (event) {
@@ -95,7 +105,7 @@
                 setRightRobotMessage(msg.content);
             }
         }
-
+        document.getElementById('rightCont').scrollTop = document.getElementById('rightCont').scrollHeight;
         if (undefined != msg.names) {
             $.each(msg.names, function (key, value) {
                 console.log("names.value.indexOf:" + value.indexOf("用户"));
@@ -144,6 +154,7 @@
         } else {
             webSocketSend(getLeftMessage(message), message, $("#userType").val());
         }
+        document.getElementById('rightCont').scrollTop = document.getElementById('rightCont').scrollHeight;
     };
 
     function sendRightMessage(message) {
@@ -268,6 +279,17 @@
     function closeWebSocket() {
         webSocketService.close();
     }
+
+    function goToRobotConfig() {
+        window.open("http://localhost:8087/robot/list", "_search");
+    };
+
+
+    function goToNoteConfig() {
+        window.open("http://localhost:8087/note-config/list", "_search");
+    };
+
+
 </script>
 
 </body>

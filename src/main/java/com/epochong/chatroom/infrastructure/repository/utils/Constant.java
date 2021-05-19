@@ -58,4 +58,10 @@ public interface Constant {
     String ROBOT_NAME = "机器人";
     String FROM_USER_NAME = "客服";
     String TO_USER_NAME = "用户";
+    /**
+     * 话术
+     */
+    String ROBOT_MAYBE_ANSWER = "您可能想问的问题是:";
+    String ROBOT_MAYBE_ANSWER2 = "对应回复为:";
+    String NEW_LINE = "<br/>";
 }

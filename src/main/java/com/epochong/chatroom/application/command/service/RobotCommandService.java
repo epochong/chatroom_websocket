@@ -17,4 +17,9 @@ public interface RobotCommandService {
      * @return
      */
     BaseResp insertRobotFaq(RobotDto robotDto) ;
+
+    BaseResp updateById(RobotDto robotDto);
+
+    BaseResp deleteById(RobotDto dto);
+
 }

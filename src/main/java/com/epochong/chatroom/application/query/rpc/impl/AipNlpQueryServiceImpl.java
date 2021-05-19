@@ -34,6 +34,7 @@ public class AipNlpQueryServiceImpl implements AipNlpQueryService {
         if (StringUtils.isEmpty(text)) {
             return Collections.emptyList();
         }
+        List<String> splitList = new ArrayList <>();
         try {
             // 初始化一个AipNlp
             AipNlp client = new AipNlp(APP_ID, API_KEY, SECRET_KEY);
@@ -50,15 +51,14 @@ public class AipNlpQueryServiceImpl implements AipNlpQueryService {
             log.info("分词rpc调用参数：text:{}", text);
             res = client.lexer(text, null);
             log.info("分词rpc返回结果：{}", res.toString(2));
+            JSONArray items = (JSONArray) res.get(Constant.ITEMS);
+            for (Object item : items) {
+                JSONObject object = (JSONObject) item;
+                splitList.add((String) object.get(Constant.ITEM));
+            }
         } catch (JSONException e) {
             log.error("error:{}", ExceptionUtils.getStackTrace(e));
-            return null;
-        }
-        JSONArray items = (JSONArray) res.get(Constant.ITEMS);
-        List<String> splitList = new ArrayList <>();
-        for (Object item : items) {
-            JSONObject object = (JSONObject) item;
-            splitList.add((String) object.get(Constant.ITEM));
+            return Collections.emptyList();
         }
         return splitList;
     }

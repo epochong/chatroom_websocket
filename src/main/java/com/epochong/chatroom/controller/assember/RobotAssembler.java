@@ -5,6 +5,7 @@ import com.epochong.chatroom.domian.entity.Robot;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Objects;
 
 /**
  * @author wangchong.epochong
@@ -20,6 +21,23 @@ public class RobotAssembler {
         dto.setAnswer(robot.getAnswer());
         dto.setFaqValid(robot.getFaqValid());
         return dto;
+    }
+
+    public static Robot getRobot(RobotDto robotDto) {
+        Robot robot = new Robot();
+        if (Objects.nonNull(robotDto.getId())) {
+            robot.setId(robotDto.getId());
+        }
+        if (Objects.nonNull(robotDto.getFaq())) {
+            robot.setFaq(robotDto.getFaq());
+        }
+        if (Objects.nonNull(robotDto.getAnswer())) {
+            robot.setAnswer(robotDto.getAnswer());
+        }
+        if (Objects.nonNull(robotDto.getFaqValid())) {
+            robot.setFaqValid(robotDto.getFaqValid());
+        }
+        return robot;
     }
 
     public static Robot getRobot(ResultSet resultSet) throws SQLException {
@@ -39,6 +57,8 @@ public class RobotAssembler {
 
     public static RobotDto getRobotDto(Robot robot) {
         RobotDto dto = new RobotDto();
+        dto.setId(robot.getId());
+        dto.setFaqValid(robot.getFaqValid());
         dto.setFaq(robot.getFaq());
         dto.setAnswer(robot.getAnswer());
         return dto;

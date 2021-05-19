@@ -9,9 +9,7 @@ import org.apache.commons.lang.exception.ExceptionUtils;
 import org.springframework.util.CollectionUtils;
 
 import java.sql.*;
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 
 /**
@@ -23,6 +21,77 @@ import java.util.Map;
  */
 @Slf4j
 public class RobotDao extends BaseDao {
+
+    public List<Robot> getAll() {
+        log.info("getAll(): ");
+        Connection connection = null;
+        PreparedStatement statement = null;
+        ResultSet resultSet = null;
+        List<Robot> robotList = new ArrayList <>();
+        try {
+            connection = getConnection();
+            String sql = "select * from robot_faq";
+            statement = connection.prepareStatement(sql);
+            resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                robotList.add(RobotAssembler.getRobot(resultSet));
+            }
+        } catch (Exception e) {
+            log.error("数据库查询异常 error:{}", ExceptionUtils.getStackTrace(e));
+        } finally {
+            close(connection, statement, resultSet);
+        }
+        return robotList;
+    }
+
+    public List<Robot> searchByFaq(RobotDto robot) {
+        Connection connection = null;
+        PreparedStatement statement = null;
+        ResultSet resultSet = null;
+        Set<Robot> robotSet = new HashSet <>();
+        try {
+            connection = getConnection();
+            String sql = "select * from robot_faq where faq like ?";
+            statement = connection.prepareStatement(sql);
+            // 完全匹配
+            resultSet = querySqlResult(statement, robot.getFaq());
+            while (resultSet.next()) {
+                robotSet.add(RobotAssembler.getRobot(resultSet));
+            }
+            // 整句话模糊匹配如果包含该问题子串匹配度最高
+            resultSet = querySqlResult(statement, "%" + robot.getFaq() + "%");
+            while (resultSet.next()) {
+                robotSet.add(RobotAssembler.getRobot(resultSet));
+            }
+        } catch (Exception e) {
+            log.error("数据库查询异常 error:{}", ExceptionUtils.getStackTrace(e));
+            return Collections.emptyList();
+        } finally {
+            close(connection, statement, resultSet);
+        }
+        return new ArrayList <>(robotSet);
+    }
+    public boolean updateById(Robot robot) {
+        log.info("insertFaq(): param:{}", robot.toString());
+        Connection connection = null;
+        PreparedStatement statement = null;
+        boolean isSuccess = false;
+        try {
+            connection = getConnection();
+            String sql = "update robot_faq set faq_valid = ?, faq = ?, answer = ? where id = ?";
+            statement = connection.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
+            statement.setInt(1, robot.getFaqValid());
+            statement.setString(2, robot.getFaq());
+            statement.setString(3, robot.getAnswer());
+            statement.setInt(4, robot.getId());
+            isSuccess = (statement.executeUpdate() == 1);
+        } catch (SQLException e) {
+            log.error("insertFaq() error:{}", ExceptionUtils.getStackTrace(e));
+        } finally {
+            close(connection,statement);
+        }
+        return isSuccess;
+    }
 
     public boolean insertFaq(RobotDto robotDto) {
         log.info("insertFaq(): param:{}", robotDto.toString());
@@ -45,6 +114,24 @@ public class RobotDao extends BaseDao {
         return isSuccess;
     }
 
+    public boolean deleteById(Robot robot) {
+        log.info("insertFaq(): param:{}", robot.toString());
+        Connection connection = null;
+        PreparedStatement statement = null;
+        boolean isSuccess = false;
+        try {
+            connection = getConnection();
+            String sql = "delete from robot_faq where id = ?";
+            statement = connection.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
+            statement.setInt(1, robot.getId());
+            isSuccess = (statement.executeUpdate() == 1);
+        } catch (SQLException e) {
+            log.error("insertFaq() error:{}", ExceptionUtils.getStackTrace(e));
+        } finally {
+            close(connection,statement);
+        }
+        return isSuccess;
+    }
 
     public Robot queryAnswer(RobotDto dto) {
         Connection connection = null;

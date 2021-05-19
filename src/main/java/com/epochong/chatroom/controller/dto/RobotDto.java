@@ -13,6 +13,7 @@ import java.util.List;
  */
 @Data
 public class RobotDto {
+    private Integer id;
     private List<String> keyWords;
     private String faq;
     private String answer;

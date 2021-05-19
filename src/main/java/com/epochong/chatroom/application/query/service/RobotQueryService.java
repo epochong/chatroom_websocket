@@ -1,7 +1,10 @@
 package com.epochong.chatroom.application.query.service;
 
 import com.epochong.chatroom.controller.dto.RobotDto;
+import com.epochong.chatroom.domian.entity.Robot;
 import com.epochong.chatroom.domian.value.BaseResp;
+
+import java.util.List;
 
 /**
  * @author wangchong.epochong
@@ -12,4 +15,7 @@ import com.epochong.chatroom.domian.value.BaseResp;
  */
 public interface RobotQueryService {
     BaseResp queryAnswer(RobotDto dto);
+    BaseResp queryAnswerById(RobotDto dto);
+    List<Robot> getAll();
+    List<Robot> searchByFaq(RobotDto dto);
 }

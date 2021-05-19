@@ -53,7 +53,7 @@ display: -webkit-box;
 -webkit-box-orient: horizontal;
 }
 .conLeft{
-	width: 200px;
+	width: 250px;
 	overflow: auto;
 	background: #2e3238;
 }
@@ -316,3 +316,29 @@ transform: scale(1.2);
 }
 
 
+.btn-wrap {
+	position: absolute;
+	top: -40px;
+	overflow: hidden;
+	background: rgba(0,0,0,0.6);
+	width: 100%;
+}
+.btn-wrap div {
+	float: left;
+	min-width: 130px;
+	height: 40px;
+	background: #000;
+	border: none;
+	margin-right: 1px;
+	color: white;
+	text-align: center;
+	line-height: 40px;
+	cursor: pointer;
+}
+a {
+	text-decoration: none;
+	color: #fff;
+}
+a:hover {
+	text-decoration: none;
+}
