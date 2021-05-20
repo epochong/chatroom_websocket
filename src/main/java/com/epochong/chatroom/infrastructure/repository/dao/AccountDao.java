@@ -47,7 +47,7 @@ public class AccountDao  extends BaseDao {
         boolean isSuccess = false;
         try {
             connection = getConnection();
-            String sql = "insert into user(username,password,user_type,city) values(?,?,?)";
+            String sql = "insert into user(username,password,user_type) values(?,?,?)";
             statement = connection.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
             statement.setString(1, user.getUserName());
             statement.setString(2, DigestUtils.md5Hex(user.getPassword()));
