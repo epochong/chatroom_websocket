@@ -6,6 +6,7 @@ import com.epochong.chatroom.application.query.service.RobotQueryService;
 import com.epochong.chatroom.application.query.service.impl.RobotQueryServiceImpl;
 import com.epochong.chatroom.controller.assember.RobotAssembler;
 import com.epochong.chatroom.controller.dto.RobotDto;
+import com.epochong.chatroom.controller.vo.RobotVo;
 import com.epochong.chatroom.domian.entity.Robot;
 import com.epochong.chatroom.domian.value.BaseResp;
 import com.epochong.chatroom.infrastructure.repository.utils.Constant;
@@ -62,9 +63,9 @@ public class RobotController {
     }
 
     @RequestMapping("/update")
-    public String update(Robot robot){
-        log.info("update(): params:{}", robot);
-        BaseResp baseResp = robotCommandService.updateById(RobotAssembler.getRobotDto(robot));
+    public String update(RobotVo robotVo){
+        log.info("update(): params:{}", robotVo);
+        BaseResp baseResp = robotCommandService.updateById(RobotAssembler.getRobotDto(robotVo));
         if (baseResp.getCode() == Constant.SUCCESS) {
             return "redirect:list";
         }
@@ -72,8 +73,8 @@ public class RobotController {
     }
 
     @RequestMapping("/add")
-    public String add(Robot robot){
-        robotCommandService.insertRobotFaq(RobotAssembler.getRobotDto(robot));
+    public String add(RobotVo robotVo){
+        robotCommandService.insertRobotFaq(RobotAssembler.getRobotDto(robotVo));
         return "redirect:list";
     }
 

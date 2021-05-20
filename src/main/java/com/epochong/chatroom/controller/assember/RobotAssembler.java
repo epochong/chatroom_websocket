@@ -1,6 +1,7 @@
 package com.epochong.chatroom.controller.assember;
 
 import com.epochong.chatroom.controller.dto.RobotDto;
+import com.epochong.chatroom.controller.vo.RobotVo;
 import com.epochong.chatroom.domian.entity.Robot;
 
 import java.sql.ResultSet;
@@ -63,4 +64,13 @@ public class RobotAssembler {
         dto.setAnswer(robot.getAnswer());
         return dto;
     }
+    public static RobotDto getRobotDto(RobotVo robot) {
+        RobotDto dto = new RobotDto();
+        dto.setId(robot.getId());
+        dto.setFaqValid(robot.getFaqValid());
+        dto.setFaq(robot.getFaq());
+        dto.setAnswer(robot.getAnswer());
+        return dto;
+    }
+
 }

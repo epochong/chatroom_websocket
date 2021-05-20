@@ -160,7 +160,7 @@
     function sendRightMessage(message) {
         var time = new Date().toLocaleString();
         //发送消息
-        var rightHtmlstr = '<li><div class="answerHead"><img src="assets/img/kefu.gif"></div><div class="answers">'
+        var rightHtmlstr = '<li><div class="answerHead"><img src="assets/img/kefu.gif"></div><div class="answers" style="background:#A9F5BC; color:#000;">'
                 + '[客服]' + '   ' + time + '<br/>' + message + '</div></li>';
         webSocketSend(rightHtmlstr, message, $("#userType").val());
     };

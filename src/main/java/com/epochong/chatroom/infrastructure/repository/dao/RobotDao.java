@@ -47,22 +47,21 @@ public class RobotDao extends BaseDao {
     public List<Robot> searchByFaq(RobotDto robot) {
         Connection connection = null;
         PreparedStatement statement = null;
+        PreparedStatement answerStatement = null;
         ResultSet resultSet = null;
         Set<Robot> robotSet = new HashSet <>();
         try {
             connection = getConnection();
             String sql = "select * from robot_faq where faq like ?";
+            String answerSql = "select * from robot_faq where answer like ?";
             statement = connection.prepareStatement(sql);
+            answerStatement = connection.prepareStatement(answerSql);
             // 完全匹配
-            resultSet = querySqlResult(statement, robot.getFaq());
-            while (resultSet.next()) {
-                robotSet.add(RobotAssembler.getRobot(resultSet));
-            }
+            addQueryResult(statement, robot.getFaq(), robotSet);
+            addQueryResult(answerStatement, robot.getFaq(), robotSet);
             // 整句话模糊匹配如果包含该问题子串匹配度最高
-            resultSet = querySqlResult(statement, "%" + robot.getFaq() + "%");
-            while (resultSet.next()) {
-                robotSet.add(RobotAssembler.getRobot(resultSet));
-            }
+            addQueryResult(statement, "%" + robot.getFaq() + "%", robotSet);
+            addQueryResult(answerStatement, "%" + robot.getFaq() + "%", robotSet);
         } catch (Exception e) {
             log.error("数据库查询异常 error:{}", ExceptionUtils.getStackTrace(e));
             return Collections.emptyList();
@@ -210,6 +209,15 @@ public class RobotDao extends BaseDao {
         return robot;
     }
 
+
+    private ResultSet addQueryResult(PreparedStatement statement, String word, Set<Robot> robotSet) throws SQLException {
+        statement.setString(1, word);
+        ResultSet resultSet = statement.executeQuery();
+        while (resultSet.next()) {
+            robotSet.add(RobotAssembler.getRobot(resultSet));
+        }
+        return resultSet;
+    }
 
     private ResultSet querySqlResult(PreparedStatement statement, String word) throws SQLException {
         statement.setString(1, word);

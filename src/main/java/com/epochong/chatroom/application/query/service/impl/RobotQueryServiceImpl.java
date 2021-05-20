@@ -50,10 +50,13 @@ public class RobotQueryServiceImpl implements RobotQueryService {
             if (Objects.nonNull(robot)) {
                 robotDto = RobotAssembler.getRobotDto(robot);
             }
-            // 问题不为空就不是兜底方案
-            if (Objects.nonNull(robotDto.getFaq())) {
-                baseResp.setCode(ResourceException.SUCCESS.getCode());
+            // 问题为空就是兜底方案
+            if (Objects.isNull(robotDto.getFaq())) {
+                baseResp.setMessage(robotDto.getAnswer());
+                return baseResp;
             }
+            // 问题不为空，说明匹配到了这个问题
+            baseResp = BaseResp.getSuccessResp();
             baseResp.setMessage(Constant.ROBOT_MAYBE_ANSWER + robotDto.getFaq() + Constant.NEW_LINE
                     + Constant.ROBOT_MAYBE_ANSWER2 + robotDto.getAnswer());
         } catch (Exception e) {

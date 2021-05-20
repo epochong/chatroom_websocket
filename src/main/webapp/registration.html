@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,45 +6,45 @@
     <link rel="stylesheet" href="assets/css/common_form.css">
 </head>
 <body>
-    <header>
-        <div class="header-line"></div>
-    </header>
-    <div class="content">
-        <img class="content-logo" src="assets/img/robot.jpg" alt="logo">
-        <h1 class="content-title">创建账户</h1>
-        <div class="content-form">
-            <!--
-                前端获取用户输入提交表单到后端controller
-                以post方式提交到后台，访问doRegister的时候进入post方法
-                action：表单提交的后台地址
-            -->
-            <form method="post" action="/doRegister" onsubmit="return submitTest()">
-                <div id="change_margin_1">
-                    <input class="username" type="text" name="username" placeholder="请输入用户名" onblur="oBlur_1()" onfocus="oFocus_1()">
-                </div>
-                <!-- input的value为空时弹出提醒 -->
-                <p id="remind_1"></p>
-                <div id="change_margin_2">
-                    <input class="password" type="password" name="password" placeholder="请输入密码" onblur="oBlur_2()" onfocus="oFocus_2()">
-                </div>
-                <div id="change_margin_4">
-                    <input type="radio" name="userType" value="1" checked="checked"><span>注册客服</span>
-                    <input type="radio" name="userType" value="2"><span>注册用户</span>
-                </div>
-                <!-- input的value为空时弹出提醒 -->
-                <p id="remind_2"></p>
-                <div id="change_margin_3">
-                    <input class="content-form-signup" type="submit" value="创建账户">
-                </div>
-            </form>
-        </div>
-        <div class="content-login-description">已经拥有账户？</div>
-        <div><a class="content-login-link" href="/index.html">登录</a></div>
+<header>
+    <div class="header-line"></div>
+</header>
+<div class="content">
+    <img class="content-logo" src="assets/img/robot.jpg" alt="logo">
+    <h1 class="content-title">创建账户</h1>
+    <div class="content-form">
+        <!--
+            前端获取用户输入提交表单到后端controller
+            以post方式提交到后台，访问doRegister的时候进入post方法
+            action：表单提交的后台地址
+        -->
+        <form method="post" action="/doRegister" onsubmit="return submitTest()">
+            <div id="change_margin_1">
+                <input class="username" type="text" name="username" placeholder="请输入用户名" onblur="oBlur_1()" onfocus="oFocus_1()">
+            </div>
+            <!-- input的value为空时弹出提醒 -->
+            <p id="remind_1"></p>
+            <div id="change_margin_2">
+                <input class="password" type="password" name="password" placeholder="请输入密码" onblur="oBlur_2()" onfocus="oFocus_2()">
+            </div>
+            <div id="change_margin_4">
+                <input type="radio" name="userType" value="1" checked="checked"><span>注册客服</span>
+                <input type="radio" name="userType" value="2"><span>注册用户</span>
+            </div>
+            <!-- input的value为空时弹出提醒 -->
+            <p id="remind_2"></p>
+            <div id="change_margin_3">
+                <input class="content-form-signup" type="submit" value="创建账户">
+            </div>
+        </form>
     </div>
-    <div style="height: 60px; width: 200px;margin: auto;margin-top: 40px;" >
-        <li><a href="https://github.com/epochong" target="_blank"><span style="color: dodgerblue; font-size: 18px;">My Blog</span></a></li>
-        <li><a href="https://epochong.github.io/" target="_blank"><span style="color: dodgerblue; font-size: 18px;">My GitHub</span></a></li>
-    </div>
+    <div class="content-login-description">已经拥有账户？</div>
+    <div><a class="content-login-link" href="/index.html">登录</a></div>
+</div>
+<div style="height: 60px; width: 200px;margin: auto;margin-top: 40px;" >
+    <li><a href="https://github.com/epochong" target="_blank"><span style="color: dodgerblue; font-size: 18px;">My Blog</span></a></li>
+    <li><a href="https://epochong.github.io/" target="_blank"><span style="color: dodgerblue; font-size: 18px;">My GitHub</span></a></li>
+</div>
 <script src="assets/js/common_form_test.js"></script>
 </body>
 </html>
