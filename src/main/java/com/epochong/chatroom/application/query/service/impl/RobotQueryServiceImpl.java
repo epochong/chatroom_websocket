@@ -1,22 +1,19 @@
 package com.epochong.chatroom.application.query.service.impl;
 
-import com.epochong.chatroom.application.query.rpc.AipNlpQueryService;
-import com.epochong.chatroom.application.query.rpc.impl.AipNlpQueryServiceImpl;
+import com.epochong.chatroom.application.query.service.rpc.AipNlpQueryService;
+import com.epochong.chatroom.application.query.service.rpc.impl.AipNlpQueryServiceImpl;
 import com.epochong.chatroom.application.query.service.RobotQueryService;
 import com.epochong.chatroom.controller.assember.RobotAssembler;
 import com.epochong.chatroom.controller.dto.RobotDto;
 import com.epochong.chatroom.domian.entity.Robot;
 import com.epochong.chatroom.domian.value.BaseResp;
 import com.epochong.chatroom.exception.ResourceException;
-import com.epochong.chatroom.infrastructure.repository.dao.RobotDao;
+import com.epochong.chatroom.infrastructure.repository.mapper.RobotMapper;
 import com.epochong.chatroom.infrastructure.repository.utils.Constant;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.exception.ExceptionUtils;
-import org.springframework.util.CollectionUtils;
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 
@@ -29,7 +26,7 @@ import java.util.Objects;
  */
 @Slf4j
 public class RobotQueryServiceImpl implements RobotQueryService {
-    private RobotDao robotDao = new RobotDao();
+    private RobotMapper robotMapper = new RobotMapper();
     private AipNlpQueryService aipNlpQueryService = new AipNlpQueryServiceImpl();
 
 
@@ -45,7 +42,7 @@ public class RobotQueryServiceImpl implements RobotQueryService {
             List <String> stringSplit = aipNlpQueryService.getStringSplit(dto.getFaq());
             log.info("queryAnswer() 分词结果:{}", stringSplit);
             dto.setKeyWords(stringSplit);
-            Robot robot = robotDao.queryAnswer(dto);
+            Robot robot = robotMapper.queryAnswer(dto);
             RobotDto robotDto = null;
             if (Objects.nonNull(robot)) {
                 robotDto = RobotAssembler.getRobotDto(robot);
@@ -69,18 +66,18 @@ public class RobotQueryServiceImpl implements RobotQueryService {
     public BaseResp queryAnswerById(RobotDto dto) {
         Robot robot = RobotAssembler.getRobot(dto);
         BaseResp baseResp = BaseResp.getSuccessResp();
-        baseResp.setObject(robotDao.queryRobotById(robot));
+        baseResp.setObject(robotMapper.queryRobotById(robot));
         return baseResp;
     }
 
     @Override
     public List <Robot> getAll() {
-        return robotDao.getAll();
+        return robotMapper.getAll();
     }
 
     @Override
     public List <Robot> searchByFaq(RobotDto dto) {
-        return robotDao.searchByFaq(dto);
+        return robotMapper.searchByFaq(dto);
     }
 
 

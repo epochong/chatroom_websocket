@@ -1,4 +1,4 @@
-package com.epochong.chatroom.infrastructure.repository.dao;
+package com.epochong.chatroom.infrastructure.repository.mapper;
 
 import com.epochong.chatroom.controller.assember.RobotAssembler;
 import com.epochong.chatroom.controller.dto.RobotDto;
@@ -20,7 +20,7 @@ import java.util.*;
  * @describe
  */
 @Slf4j
-public class RobotDao extends BaseDao {
+public class RobotMapper extends BaseMapper {
 
     public List<Robot> getAll() {
         log.info("getAll(): ");

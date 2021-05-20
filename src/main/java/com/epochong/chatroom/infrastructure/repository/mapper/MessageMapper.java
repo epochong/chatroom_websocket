@@ -1,4 +1,4 @@
-package com.epochong.chatroom.infrastructure.repository.dao;
+package com.epochong.chatroom.infrastructure.repository.mapper;
 
 import com.epochong.chatroom.controller.assember.MessageAssembler;
 import com.epochong.chatroom.domian.entity.Message;
@@ -17,7 +17,7 @@ import java.util.List;
  * @describe
  */
 @Slf4j
-public class MessageDao extends BaseDao{
+public class MessageMapper extends BaseMapper {
 
     public List<Message> queryByFromUserId(Message query) {
         log.info("queryByFromUserId(): params:{}", query);

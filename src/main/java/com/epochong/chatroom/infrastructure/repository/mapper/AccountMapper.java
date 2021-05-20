@@ -1,4 +1,4 @@
-package com.epochong.chatroom.infrastructure.repository.dao;
+package com.epochong.chatroom.infrastructure.repository.mapper;
 
 import com.epochong.chatroom.controller.assember.UserAssembler;
 import com.epochong.chatroom.controller.dto.LoginDto;
@@ -17,7 +17,7 @@ import java.sql.*;
  * @describe
  */
 @Slf4j
-public class AccountDao  extends BaseDao {
+public class AccountMapper extends BaseMapper {
     public User userLogin(LoginDto loginDto) {
         Connection connection = null;
         PreparedStatement statement = null;

@@ -1,7 +1,7 @@
-package com.epochong.chatroom.application.query.rpc.impl;
+package com.epochong.chatroom.application.query.service.rpc.impl;
 
 import com.baidu.aip.nlp.AipNlp;
-import com.epochong.chatroom.application.query.rpc.AipNlpQueryService;
+import com.epochong.chatroom.application.query.service.rpc.AipNlpQueryService;
 import com.epochong.chatroom.infrastructure.repository.utils.Constant;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.StringUtils;

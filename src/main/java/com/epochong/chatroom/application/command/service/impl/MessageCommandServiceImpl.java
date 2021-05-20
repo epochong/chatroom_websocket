@@ -5,7 +5,7 @@ import com.epochong.chatroom.controller.assember.MessageAssembler;
 import com.epochong.chatroom.controller.dto.MessageDto;
 import com.epochong.chatroom.domian.entity.Message;
 import com.epochong.chatroom.domian.value.BaseResp;
-import com.epochong.chatroom.infrastructure.repository.dao.MessageDao;
+import com.epochong.chatroom.infrastructure.repository.mapper.MessageMapper;
 
 /**
  * @author wangchong.epochong
@@ -16,11 +16,11 @@ import com.epochong.chatroom.infrastructure.repository.dao.MessageDao;
  */
 public class MessageCommandServiceImpl implements MessageCommandService {
 
-    private MessageDao messageDao = new MessageDao();
+    private MessageMapper messageMapper = new MessageMapper();
     @Override
     public BaseResp insertRobotFaq(MessageDto messageDto) {
         Message message = MessageAssembler.getMessage(messageDto);
-        boolean isSuccess = messageDao.insertMessage(message);
+        boolean isSuccess = messageMapper.insertMessage(message);
         if (isSuccess) {
             return BaseResp.getSuccessResp();
         }

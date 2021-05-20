@@ -5,7 +5,7 @@ import com.epochong.chatroom.controller.dto.LoginDto;
 import com.epochong.chatroom.domian.entity.User;
 import com.epochong.chatroom.domian.value.BaseResp;
 import com.epochong.chatroom.exception.ResourceException;
-import com.epochong.chatroom.infrastructure.repository.dao.AccountDao;
+import com.epochong.chatroom.infrastructure.repository.mapper.AccountMapper;
 import com.epochong.chatroom.infrastructure.repository.utils.Constant;
 
 /**
@@ -17,11 +17,11 @@ import com.epochong.chatroom.infrastructure.repository.utils.Constant;
  */
 public class AccountQueryServiceImpl implements AccountQueryService {
 
-    private AccountDao accountDao = new AccountDao();
+    private AccountMapper accountMapper = new AccountMapper();
 
     @Override
     public BaseResp userLogin(LoginDto loginDto) {
-        User user = accountDao.userLogin(loginDto);
+        User user = accountMapper.userLogin(loginDto);
         if (user == null) {
             return new BaseResp(ResourceException.ACCOUNT_NOT_CORRECT);
         }

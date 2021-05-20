@@ -1,4 +1,4 @@
-package com.epochong.chatroom.application.query.rpc;
+package com.epochong.chatroom.application.query.service.rpc;
 
 import java.util.List;
 

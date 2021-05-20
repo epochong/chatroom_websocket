@@ -1,4 +1,4 @@
-package com.epochong.chatroom.infrastructure.repository.dao;
+package com.epochong.chatroom.infrastructure.repository.mapper;
 
 import com.alibaba.druid.pool.DruidDataSourceFactory;
 import com.epochong.chatroom.infrastructure.repository.utils.CommUtils;
@@ -17,7 +17,7 @@ import java.util.Properties;
  * @blog epochong.github.io
  * @describe 封装基础操作，数据源，获取连接，关闭资源
  */
-public class BaseDao {
+public class BaseMapper {
     private static DataSource dataSource;
     static {
         Properties properties = CommUtils.loadProperties("datasource.properties");

@@ -1,4 +1,4 @@
-package com.epochong.chatroom.infrastructure.repository.dao;
+package com.epochong.chatroom.infrastructure.repository.mapper;
 
 import com.epochong.chatroom.controller.dto.LoginDto;
 import com.epochong.chatroom.domian.entity.User;
@@ -12,8 +12,8 @@ import org.junit.Test;
  * @blog epochong.github.io
  * @describe
  */
-public class AccountDaoTest {
-    private AccountDao accountDao = new AccountDao();
+public class AccountMapperTest {
+    private AccountMapper accountMapper = new AccountMapper();
 
     /**
      * 检验注册功能
@@ -24,7 +24,7 @@ public class AccountDaoTest {
         User user = new User();
         user.setUserName("test2");
         user.setPassword("test2");
-        boolean isSuccess = accountDao.userRegister(user);
+        boolean isSuccess = accountMapper.userRegister(user);
         Assert.assertEquals(true,isSuccess);
     }
 
@@ -37,7 +37,7 @@ public class AccountDaoTest {
         LoginDto loginDto = new LoginDto();
         loginDto.setUsername("test");
         loginDto.setPassword("test");
-        User user = accountDao.userLogin(loginDto);
+        User user = accountMapper.userLogin(loginDto);
         Assert.assertNotNull(user);
     }
 }

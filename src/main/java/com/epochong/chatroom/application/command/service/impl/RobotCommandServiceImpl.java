@@ -6,7 +6,7 @@ import com.epochong.chatroom.controller.dto.RobotDto;
 import com.epochong.chatroom.domian.entity.Robot;
 import com.epochong.chatroom.domian.value.BaseResp;
 import com.epochong.chatroom.exception.ResourceException;
-import com.epochong.chatroom.infrastructure.repository.dao.RobotDao;
+import com.epochong.chatroom.infrastructure.repository.mapper.RobotMapper;
 
 /**
  * @author wangchong.epochong
@@ -17,10 +17,10 @@ import com.epochong.chatroom.infrastructure.repository.dao.RobotDao;
  */
 public class RobotCommandServiceImpl implements RobotCommandService {
 
-    private RobotDao robotDao = new RobotDao();
+    private RobotMapper robotMapper = new RobotMapper();
     @Override
     public BaseResp insertRobotFaq(RobotDto robotDto) {
-        if (robotDao.insertFaq(robotDto)) {
+        if (robotMapper.insertFaq(robotDto)) {
             return new BaseResp(ResourceException.SUCCESS);
         }
         return new BaseResp(ResourceException.SYSTEM_ERROR);
@@ -28,7 +28,7 @@ public class RobotCommandServiceImpl implements RobotCommandService {
 
     @Override
     public BaseResp updateById(RobotDto robotDto) {
-        if (robotDao.updateById(RobotAssembler.getRobot(robotDto))) {
+        if (robotMapper.updateById(RobotAssembler.getRobot(robotDto))) {
             return BaseResp.getSuccessResp();
         }
         return BaseResp.getFailResp();
@@ -37,7 +37,7 @@ public class RobotCommandServiceImpl implements RobotCommandService {
     @Override
     public BaseResp deleteById(RobotDto dto) {
         Robot robot = RobotAssembler.getRobot(dto);
-        if (robotDao.deleteById(robot)) {
+        if (robotMapper.deleteById(robot)) {
             return BaseResp.getSuccessResp();
         }
         return BaseResp.getFailResp();
