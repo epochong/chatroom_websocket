@@ -1,10 +1,10 @@
 package com.epochong.chatroom.controller;
 
-import com.epochong.chatroom.application.command.service.impl.AccountCommandServiceImpl;
+import com.epochong.chatroom.application.command.service.impl.UserCommandServiceImpl;
 import com.epochong.chatroom.controller.assember.UserAssembler;
 import com.epochong.chatroom.controller.dto.LoginDto;
 import com.epochong.chatroom.controller.vo.LoginVo;
-import com.epochong.chatroom.application.command.service.AccountCommandService;
+import com.epochong.chatroom.application.command.service.UserCommandService;
 import com.epochong.chatroom.domian.value.BaseResp;
 
 import javax.servlet.ServletException;
@@ -26,7 +26,7 @@ import java.io.PrintWriter;
  */
 @WebServlet(urlPatterns = "/doRegister")
 public class AccountController extends HttpServlet {
-    private AccountCommandService accountCommandService = new AccountCommandServiceImpl();
+    private UserCommandService userCommandService = new UserCommandServiceImpl();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -39,7 +39,7 @@ public class AccountController extends HttpServlet {
         resp.setContentType("text/html;charset=utf8");
         PrintWriter writer = resp.getWriter();
         LoginDto loginDto = UserAssembler.getLoginDto(loginVo);
-        BaseResp registerResp = accountCommandService.userRegister(loginDto);
+        BaseResp registerResp = userCommandService.userRegister(loginDto);
         writer.println(UserAssembler.getWriterStr(registerResp));
     }
 

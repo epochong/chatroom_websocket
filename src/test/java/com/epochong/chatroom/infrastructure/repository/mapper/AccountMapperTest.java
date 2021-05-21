@@ -24,6 +24,7 @@ public class AccountMapperTest {
         User user = new User();
         user.setUserName("test2");
         user.setPassword("test2");
+        user.setUserType(2);
         boolean isSuccess = accountMapper.userRegister(user);
         Assert.assertEquals(true,isSuccess);
     }
@@ -37,6 +38,7 @@ public class AccountMapperTest {
         LoginDto loginDto = new LoginDto();
         loginDto.setUsername("test");
         loginDto.setPassword("test");
+        loginDto.setUserType(1);
         User user = accountMapper.userLogin(loginDto);
         Assert.assertNotNull(user);
     }

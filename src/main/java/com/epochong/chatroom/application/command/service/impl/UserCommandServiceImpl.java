@@ -1,6 +1,6 @@
 package com.epochong.chatroom.application.command.service.impl;
 
-import com.epochong.chatroom.application.command.service.AccountCommandService;
+import com.epochong.chatroom.application.command.service.UserCommandService;
 import com.epochong.chatroom.controller.dto.LoginDto;
 import com.epochong.chatroom.domian.entity.User;
 import com.epochong.chatroom.domian.value.BaseResp;
@@ -14,7 +14,7 @@ import com.epochong.chatroom.infrastructure.repository.mapper.AccountMapper;
  * @blog epochong.github.io
  * @describe
  */
-public class AccountCommandServiceImpl implements AccountCommandService {
+public class UserCommandServiceImpl implements UserCommandService {
 
     private AccountMapper accountMapper = new AccountMapper();
 

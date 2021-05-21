@@ -1,7 +1,7 @@
 package com.epochong.chatroom.controller;
 
-import com.epochong.chatroom.application.query.service.AccountQueryService;
-import com.epochong.chatroom.application.query.service.impl.AccountQueryServiceImpl;
+import com.epochong.chatroom.application.query.service.UserQueryService;
+import com.epochong.chatroom.application.query.service.impl.UserQueryServiceImpl;
 import com.epochong.chatroom.config.FreeMarkerListener;
 import com.epochong.chatroom.controller.assember.UserAssembler;
 import com.epochong.chatroom.controller.dto.LoginDto;
@@ -40,7 +40,7 @@ import java.util.Objects;
 @WebServlet(urlPatterns = "/login")
 public class LoginController extends HttpServlet {
 
-    private AccountQueryService accountQueryService = new AccountQueryServiceImpl();
+    private UserQueryService userQueryService = new UserQueryServiceImpl();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -58,7 +58,7 @@ public class LoginController extends HttpServlet {
             return;
         }
         LoginDto loginDto = UserAssembler.getLoginDto(loginVo);
-        BaseResp baseResp = accountQueryService.userLogin(loginDto);
+        BaseResp baseResp = userQueryService.userLogin(loginDto);
         if (baseResp.getCode() == Constant.SUCCESS) {
             // 登录成功,跳转到聊天页面
             // 加载chat.ftl

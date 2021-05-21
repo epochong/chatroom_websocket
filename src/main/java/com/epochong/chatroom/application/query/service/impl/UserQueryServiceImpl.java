@@ -1,6 +1,6 @@
 package com.epochong.chatroom.application.query.service.impl;
 
-import com.epochong.chatroom.application.query.service.AccountQueryService;
+import com.epochong.chatroom.application.query.service.UserQueryService;
 import com.epochong.chatroom.controller.dto.LoginDto;
 import com.epochong.chatroom.domian.entity.User;
 import com.epochong.chatroom.domian.value.BaseResp;
@@ -15,7 +15,7 @@ import com.epochong.chatroom.infrastructure.repository.utils.Constant;
  * @blog epochong.github.io
  * @describe
  */
-public class AccountQueryServiceImpl implements AccountQueryService {
+public class UserQueryServiceImpl implements UserQueryService {
 
     private AccountMapper accountMapper = new AccountMapper();
 

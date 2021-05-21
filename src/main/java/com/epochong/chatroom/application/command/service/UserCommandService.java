@@ -10,7 +10,7 @@ import com.epochong.chatroom.domian.value.BaseResp;
  * @blog epochong.github.io
  * @describe
  */
-public interface AccountCommandService {
+public interface UserCommandService {
 
     /**
      * 用户注册
