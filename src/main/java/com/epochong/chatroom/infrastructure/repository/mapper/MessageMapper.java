@@ -72,12 +72,15 @@ public class MessageMapper extends BaseMapper {
         boolean isSuccess = false;
         try {
             connection = getConnection();
-            String sql = "insert into message(from_user_id,to_user_id,content,create_time) values(?,?,?,?)";
+            String sql = "insert into message(type, from_user_id, from_user_name,to_user_id, to_user_name, content,create_time) values(?,?,?,?,?,?,?)";
             statement = connection.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
-            statement.setInt(1, message.getFromUserId());
-            statement.setInt(2, message.getToUserId());
-            statement.setString(3, message.getContent());
-            statement.setLong(4, System.currentTimeMillis());
+            statement.setInt(1, message.getType());
+            statement.setInt(2, message.getFromUserId());
+            statement.setString(3, message.getFromUserName());
+            statement.setInt(4, message.getToUserId());
+            statement.setString(5, message.getToUserName());
+            statement.setString(6, message.getContent());
+            statement.setLong(7, System.currentTimeMillis());
             isSuccess = (statement.executeUpdate() == 1);
         } catch (SQLException e) {
             log.error("insertMessage() error:{}", ExceptionUtils.getStackTrace(e));
@@ -86,4 +89,47 @@ public class MessageMapper extends BaseMapper {
         }
         return isSuccess;
     }
+
+    public boolean updateUserName(Message message) {
+        log.info("insertMessage(): param:{}", message.toString());
+        Connection connection = null;
+        PreparedStatement statement = null;
+        boolean isSuccess = false;
+        try {
+            connection = getConnection();
+            String sql = "update message set from_user_name = ?, to_user_name = ? where id = ?";
+            statement = connection.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
+            statement.setString(1, message.getFromUserName());
+            statement.setString(2, message.getToUserName());
+            statement.setLong(3, message.getId());
+            isSuccess = (statement.executeUpdate() == 1);
+        } catch (SQLException e) {
+            log.error("insertMessage() error:{}", ExceptionUtils.getStackTrace(e));
+        } finally {
+            close(connection,statement);
+        }
+        return isSuccess;
+    }
+
+
+    public boolean updateType(Message message) {
+        log.info("insertMessage(): param:{}", message.toString());
+        Connection connection = null;
+        PreparedStatement statement = null;
+        boolean isSuccess = false;
+        try {
+            connection = getConnection();
+            String sql = "update message set type = ? where id = ?";
+            statement = connection.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
+            statement.setInt(1, message.getType());
+            statement.setLong(2, message.getId());
+            isSuccess = (statement.executeUpdate() == 1);
+        } catch (SQLException e) {
+            log.error("insertMessage() error:{}", ExceptionUtils.getStackTrace(e));
+        } finally {
+            close(connection,statement);
+        }
+        return isSuccess;
+    }
+
 }

@@ -93,15 +93,15 @@
 
         if (undefined != msg.content) {
             // 客服或者机器人
-            if (msg.userType == "1") {
+            if (msg.type == 1) {
                 console.log("rightMessage")
                 setRightMessage(msg);
             }
-            if (msg.userType == "2") {
+            if (msg.type == 2) {
                 console.log("leftMessage")
                 setLeftMessage(msg);
             }
-            if (msg.userType == "3") {
+            if (msg.type == 3) {
                 setRightRobotMessage(msg);
             }
         }
@@ -161,7 +161,7 @@
         var time = new Date().toLocaleString();
         //发送消息
         var rightHtmlstr = '<li><div class="answerHead"><img src="assets/img/kefu.gif"></div><div class="answers" style="background:#A9F5BC; color:#000;">'
-                + '[客服]' + '   ' + time + '<br/>' + message + '</div></li>';
+                + '[' + $("#headName").text() + ']' + '   ' + time + '<br/>' + message + '</div></li>';
         webSocketSend(rightHtmlstr, message, $("#userType").val());
     };
 
@@ -173,7 +173,7 @@
                 + '<img src="assets/img/yonghu.gif">'
                 + ' </div>'
                 + '<div class="answers">'
-                    + time + '<br/>' + clientMsg.content
+                   +'[' + clientMsg.titleName + ']' + time + '<br/>' + clientMsg.content
                 + '</div>'
                 + '</li>';
         $("#message").append(msg);
@@ -187,7 +187,7 @@
                         '<img src="assets/img/kefu.gif">' +
                     '</div>' +
                     '<div class="answers" style="background:#A9F5BC; color:#000;" >'
-                        + '[客服]' + '   ' + time + '<br/>'
+                        + '[' + clientMsg.titleName + ']' + '   ' + time + '<br/>'
                         + clientMsg.content +
                     '</div>'
                     + '</li>';
@@ -198,7 +198,7 @@
         var time = clientMsg.messageTime ? clientMsg.messageTime : new Date().toLocaleString();
         //发送消息
         var msg = '<li><div class="answerHead"><img src="assets/img/robot.gif"></div><div class="answers" style="background:#819FF7; color:#000;" >'
-                + '[机器人]' + '   ' + time + '<br/>' + clientMsg.content + '</div></li>';
+                + '[' + clientMsg.titleName + ']' + '   ' + time + '<br/>' + clientMsg.content + '</div></li>';
         $("#message").append(msg);
     }
 
@@ -210,7 +210,7 @@
                 + '<img src="assets/img/yonghu.gif">'
                 + ' </div>'
                 + '<div class="answers">'
-                + time + '<br/>' + message
+                + '[' + $("#headName").text() + ']' + time + '<br/>' + message
                 + '</div>'
                 + '</li>';
         return msg;
@@ -236,14 +236,16 @@
             var obj = {
                 msg: message,
                 type: 1,
-                fromUserType: fromUser
+                fromUserType: fromUser,
+                titleName: $("#headName").text()
             }
         } else {
             var obj = {
                 to: to,
                 msg: message,
                 type: 2,
-                fromUserType: fromUser
+                fromUserType: fromUser,
+                titleName: $("#headName").text()
             }
         }
         var msg = JSON.stringify(obj);

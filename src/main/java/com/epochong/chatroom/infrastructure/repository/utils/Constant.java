@@ -37,7 +37,7 @@ public interface Constant {
     String ROBOT_USER_TYPE = "3";
     int INT_FROM_USER_TYPE = 1;
     int INT_TO_USER_TYPE = 2;
-    Integer INT_ROBOT_USER_TYPE = 3;
+    int INT_ROBOT_USER_TYPE = 3;
     /**
      * 聊天类型
      */
@@ -61,7 +61,7 @@ public interface Constant {
     /**
      * 话术
      */
-    String ROBOT_MAYBE_ANSWER = "您可能想问的问题是:";
-    String ROBOT_MAYBE_ANSWER2 = "对应回复为:";
+    String ROBOT_MAYBE_ANSWER = "您可能想问的问题是：";
+    String ROBOT_MAYBE_ANSWER2 = "对应回复为：";
     String NEW_LINE = "<br/>";
 }

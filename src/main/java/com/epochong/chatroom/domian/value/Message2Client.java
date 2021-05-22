@@ -23,17 +23,17 @@ public class Message2Client {
      */
     private Map<String, String> names;
     /**
-     * 用户类型，用于区分客服还是用户
-     */
-    private String userType;
-    /**
-     * 消息类型
-     */
-    private Integer messageType;
-    /**
      * 消息时间
      */
     private String messageTime;
+    /**
+     * 消息类型
+     */
+    private Integer type;
+    /**
+     * 消息卡片上标明是谁发的
+     */
+    private String titleName;
 
     /**
      * 发送者调用

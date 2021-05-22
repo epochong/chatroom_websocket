@@ -90,15 +90,14 @@ public class WebSocketService {
         log.info("有新的连接，SessionID为" + session.getId() + ",用户名：" + this.user.getUserName() + ",用户类型：" + urlParams.get(Constant.USER_TYPE));
         //发送给所有在线用户一个上线通知
         Message2Client message2Client = new Message2Client();
-        if (Constant.FROM_USER_TYPE.equals(urlParams.get(Constant.USER_TYPE))) {
+        if (Constant.INT_FROM_USER_TYPE == user.getUserType()) {
             message2Client.setContent(user.getUserName() + "上线了，" + "请问有什么能帮到您？");
         } else {
             message2Client.setContent("您好！我有以下问题想要咨询。");
         }
-        message2Client.setUserType(urlParams.get(Constant.USER_TYPE));
+        message2Client.setType(user.getUserType());
+        message2Client.setTitleName(user.getUserName());
         message2Client.setNames(names);
-        // 系统自动回复类型
-        message2Client.setMessageType(1);
         // 历史消息展示
         showHistoryMessage();
         // 用户之间不可看见消息，客服之间，客服和用户之间可以看到消息
@@ -115,17 +114,27 @@ public class WebSocketService {
         clients.forEach(c -> {
                     // 如果是用户，则发给所有客服即可
                     if (user.getUserType() == Constant.INT_TO_USER_TYPE && c.user.getUserType() == Constant.INT_FROM_USER_TYPE) {
-                        saveMessage(c.user.getId(), user.getId(), sayContent(user.getUserName(), c.user.getUserName(), message2Client.getContent()));
+                        MessageDto messageDto = new MessageDto();
+                        messageDto.setFromUserId(c.user.getId());
+                        messageDto.setFromUserName(c.user.getUserName());
+                        messageDto.setToUserId(user.getId());
+                        messageDto.setToUserName(user.getUserName());
+                        messageDto.setContent(message2Client.getContent());
+                        messageDto.setType(user.getUserType());
+                        saveMessage(messageDto);
                     }
                     // 如果是客服发送的消息，要发给所有用户及
                     if (user.getUserType() == Constant.INT_FROM_USER_TYPE && c.user.getUserType() == Constant.INT_TO_USER_TYPE) {
-                        saveMessage(user.getId(), c.user.getId(), sayContent(user.getUserName(), c.user.getUserName(), message2Client.getContent()));
+                        MessageDto messageDto = new MessageDto();
+                        messageDto.setFromUserId(user.getId());
+                        messageDto.setFromUserName(user.getUserName());
+                        messageDto.setToUserId(c.user.getId());
+                        messageDto.setToUserName(c.user.getUserName());
+                        messageDto.setContent(message2Client.getContent());
+                        messageDto.setType(user.getUserType());
+                        saveMessage(messageDto);
                     }
                 });
-    }
-
-    private String sayContent(String from, String to, String content) {
-        return from + "对" + to + "说：" + content;
     }
 
     private void showHistoryMessage() {
@@ -141,18 +150,21 @@ public class WebSocketService {
             messageList.forEach(m -> {
                 Message2Client historyMessage = new Message2Client();
                 historyMessage.setContent(m.getContent());
-                historyMessage.setUserType(Message2Client.UserType.NAMES.get(m.getContent().substring(0,2)));
                 historyMessage.setMessageTime(TimeUtils.timestampToStr(m.getCreateTime()));
+                historyMessage.setType(m.getType());
+                if (m.getType() == Constant.INT_FROM_USER_TYPE) {
+                    historyMessage.setTitleName(m.getFromUserName());
+                } else if (m.getType() == Constant.INT_ROBOT_USER_TYPE){
+                    historyMessage.setTitleName(m.getFromUserName());
+                } else {
+                    historyMessage.setTitleName(m.getToUserName());
+                }
                 this.sendMsg(CommUtils.object2Json(historyMessage));
             });
         }
     }
 
-    private void saveMessage(Integer fromUserId, Integer toUserId, String content) {
-        MessageDto messageDto = new MessageDto();
-        messageDto.setContent(content);
-        messageDto.setFromUserId(fromUserId);
-        messageDto.setToUserId(toUserId);
+    private void saveMessage(MessageDto messageDto) {
         log.info("saveMessage() request: {}", messageDto);
         BaseResp baseResp = messageCommandService.insertRobotFaq(messageDto);
         if (baseResp.getCode() == Constant.SUCCESS) {
@@ -202,11 +214,25 @@ public class WebSocketService {
                         client.sendMsg(CommUtils.object2Json(message2Client));
                         // 如果client是用户则一定是客服发给用户的消息，因为只有客服能给用户发消息，用户不能给用户发消息
                         if (client.user.getUserType() == Constant.INT_TO_USER_TYPE) {
-                            saveMessage(user.getId(), client.user.getId(), sayContent(user.getUserName(), client.user.getUserName(), message2Client.getContent()));
+                            MessageDto messageDto = new MessageDto();
+                            messageDto.setFromUserId(user.getId());
+                            messageDto.setFromUserName(user.getUserName());
+                            messageDto.setToUserId(client.user.getId());
+                            messageDto.setToUserName(client.user.getUserName());
+                            messageDto.setContent(message2Client.getContent());
+                            messageDto.setType(user.getUserType());
+                            saveMessage(messageDto);
                         }
                         // 如果是用户发给客服的，用户的列表里只有客服，之前也filter下来已经勾选的客服了
                         else if (user.getUserType() == Constant.INT_TO_USER_TYPE){
-                            saveMessage(client.user.getId(), user.getId(), sayContent(user.getUserName(), client.user.getUserName(), message2Client.getContent()));
+                            MessageDto messageDto = new MessageDto();
+                            messageDto.setFromUserId(client.user.getId());
+                            messageDto.setFromUserName(client.user.getUserName());
+                            messageDto.setToUserId(user.getId());
+                            messageDto.setToUserName(user.getUserName());
+                            messageDto.setContent(message2Client.getContent());
+                            messageDto.setType(user.getUserType());
+                            saveMessage(messageDto);
                         }
                     });
         }
@@ -236,9 +262,21 @@ public class WebSocketService {
                     //用户自己或者所有勾选的客服
                     .filter(client -> client == this || toClients.contains(client.session.getId()) )
                     .forEach(client -> {
+                        if (client != this) {
+                            message2Client.setTitleName(Constant.ROBOT_NAME + client.user.getUserName());
+                        } else {
+                            message2Client.setTitleName(Constant.ROBOT_NAME);
+                        }
                         client.sendMsg(CommUtils.object2Json(message2Client));
                         if (client != this) {
-                            saveMessage(client.user.getId(), user.getId(), sayContent(Constant.ROBOT_NAME + client.user.getUserName(), user.getUserName(), message2Client.getContent()));
+                            MessageDto messageDto = new MessageDto();
+                            messageDto.setFromUserId(client.user.getId());
+                            messageDto.setFromUserName(Constant.ROBOT_NAME + client.user.getUserName());
+                            messageDto.setToUserId(user.getId());
+                            messageDto.setToUserName(user.getUserName());
+                            messageDto.setContent(message2Client.getContent());
+                            messageDto.setType(Constant.INT_ROBOT_USER_TYPE);
+                            saveMessage(messageDto);
                         }
                     });
         }
@@ -283,19 +321,22 @@ public class WebSocketService {
 
     @OnClose
     public void onClose() {
-        // 将客户端聊天实体移除
-        clients.remove(this);
-        // 将当前用户以及SessionID移除用户列表
-        names.remove(session.getId());
+
+
         log.info("有连接下线了,用户名为" + user.getUserName());
         Message2Client message2Client = new Message2Client();
         message2Client.setContent(user.getUserName() + "下线了！");
         message2Client.setNames(names);
+        message2Client.setTitleName(user.getUserName());
+        message2Client.setType(user.getUserType());
         // 发送信息
-        String jsonStr = CommUtils.object2Json(message2Client);
-        for (WebSocketService webSocketService : clients) {
-            webSocketService.sendMsg(jsonStr);
-        }
+        clients.stream()
+                .filter(c -> !(user.getUserType() == Constant.INT_TO_USER_TYPE && c.user.getUserType() == Constant.INT_TO_USER_TYPE))
+                .forEach(c -> c.sendMsg(CommUtils.object2Json(message2Client)));
+        // 将客户端聊天实体移除
+        clients.remove(this);
+        // 将当前用户以及SessionID移除用户列表
+        names.remove(session.getId());
     }
 
     /**
@@ -312,6 +353,7 @@ public class WebSocketService {
             * 现在在服务器端，remote为浏览器端（session的另一端）
             * sendText()：信息推送给浏览器
             * */
+            log.info("向前端发送消息：{}", msg);
             this.session.getBasicRemote().sendText(msg);
         } catch (IOException e) {
             e.printStackTrace();

@@ -21,4 +21,8 @@ public class MessageFromClient {
     private String to;
     //发送者类型：1-客服,2-用户
     private String fromUserType;
+    /**
+     * 消息卡片名字
+     */
+    private String titleName;
 }

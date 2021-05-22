@@ -16,5 +16,8 @@ public class MessageDto {
     private String content;
     private Long createTime;
     private Integer userType;
-
+    private Long id;
+    private String fromUserName;
+    private String toUserName;
+    private Integer type;
 }

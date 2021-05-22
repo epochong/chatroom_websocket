@@ -18,6 +18,29 @@ import java.sql.*;
  */
 @Slf4j
 public class AccountMapper extends BaseMapper {
+
+    public User queryById(User user) {
+        Connection connection = null;
+        PreparedStatement statement = null;
+        ResultSet resultSet = null;
+        User res = null;
+        try {
+            connection = getConnection();
+            String sql = "select * from user where id = ?";
+            statement = connection.prepareStatement(sql);
+            statement.setInt(1, user.getId());
+            resultSet = statement.executeQuery();
+            if (resultSet.next()) {
+                res = UserAssembler.getUser(resultSet);
+            }
+        } catch (Exception e) {
+            log.error("数据库查询异常 error:{}", ExceptionUtils.getStackTrace(e));
+        } finally {
+            close(connection, statement, resultSet);
+        }
+        return res;
+    }
+
     public User userLogin(LoginDto loginDto) {
         Connection connection = null;
         PreparedStatement statement = null;
