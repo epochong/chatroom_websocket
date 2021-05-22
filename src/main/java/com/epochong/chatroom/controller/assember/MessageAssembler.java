@@ -25,17 +25,6 @@ public class MessageAssembler {
         return message2Client;
     }
 
-    public static Message2Client getMessage2Client(MessageFromClient messageFromClient, String userName) {
-        //发送私聊信息
-        Message2Client message2Client = new Message2Client();
-        //发送信息的用户说的内容
-        message2Client.setContent(userName, messageFromClient.getMsg(), messageFromClient.getFromUserType());
-        message2Client.setUserType(messageFromClient.getFromUserType());
-        //通过names在前端通过key(SessionID)找到对应的发送者的名字,从而得以显示
-        message2Client.setNames(WebSocketService.names);
-        return message2Client;
-    }
-
     public static Message getMessage(MessageDto messageDto) {
         Message message= new Message();
         message.setFromUserId(messageDto.getFromUserId());

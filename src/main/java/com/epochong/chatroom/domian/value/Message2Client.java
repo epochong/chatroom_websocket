@@ -30,6 +30,10 @@ public class Message2Client {
      * 消息类型
      */
     private Integer messageType;
+    /**
+     * 消息时间
+     */
+    private String messageTime;
 
     /**
      * 发送者调用

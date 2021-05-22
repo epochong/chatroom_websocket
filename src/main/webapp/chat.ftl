@@ -95,14 +95,14 @@
             // 客服或者机器人
             if (msg.userType == "1") {
                 console.log("rightMessage")
-                setRightMessage(msg.content);
+                setRightMessage(msg);
             }
             if (msg.userType == "2") {
                 console.log("leftMessage")
-                setLeftMessage(msg.content);
+                setLeftMessage(msg);
             }
             if (msg.userType == "3") {
-                setRightRobotMessage(msg.content);
+                setRightRobotMessage(msg);
             }
         }
         document.getElementById('rightCont').scrollTop = document.getElementById('rightCont').scrollHeight;
@@ -166,21 +166,21 @@
     };
 
     //将消息显示在网页上
-    function setLeftMessage(innerHTML) {
-        var time = new Date().toLocaleString();
+    function setLeftMessage(clientMsg) {
+        var time = clientMsg.messageTime ? clientMsg.messageTime : new Date().toLocaleString();
         var msg = '<li>'
                 + '<div class="nesHead">'
                 + '<img src="assets/img/yonghu.gif">'
                 + ' </div>'
                 + '<div class="answers">'
-                    + time + '<br/>' + innerHTML
+                    + time + '<br/>' + clientMsg.content
                 + '</div>'
                 + '</li>';
         $("#message").append(msg);
     }
 
-    function setRightMessage(innerHTML) {
-        var time = new Date().toLocaleString();
+    function setRightMessage(clientMsg) {
+        var time = clientMsg.messageTime ? clientMsg.messageTime : new Date().toLocaleString();
         //发送消息
         var msg = '<li>' +
                     '<div class="answerHead">' +
@@ -188,28 +188,29 @@
                     '</div>' +
                     '<div class="answers" style="background:#A9F5BC; color:#000;" >'
                         + '[客服]' + '   ' + time + '<br/>'
-                        + innerHTML +
+                        + clientMsg.content +
                     '</div>'
                     + '</li>';
         $("#message").append(msg);
     }
 
-    function setRightRobotMessage(innerHTML) {
-        var time = new Date().toLocaleString();
+    function setRightRobotMessage(clientMsg) {
+        var time = clientMsg.messageTime ? clientMsg.messageTime : new Date().toLocaleString();
         //发送消息
         var msg = '<li><div class="answerHead"><img src="assets/img/robot.gif"></div><div class="answers" style="background:#819FF7; color:#000;" >'
-                + '[机器人]' + '   ' + time + '<br/>' + innerHTML + '</div></li>';
+                + '[机器人]' + '   ' + time + '<br/>' + clientMsg.content + '</div></li>';
         $("#message").append(msg);
     }
 
     // 获取左侧消息html串
-    function getLeftMessage(innerHTML) {
+    function getLeftMessage(message) {
+        var time = new Date().toLocaleString();
         var msg = '<li>'
                 + '<div class="nesHead">'
                 + '<img src="assets/img/yonghu.gif">'
                 + ' </div>'
-                + '<div class="news">'
-                + innerHTML
+                + '<div class="answers">'
+                + time + '<br/>' + message
                 + '</div>'
                 + '</li>';
         return msg;

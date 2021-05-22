@@ -30,7 +30,7 @@ public interface Constant {
     String USERNAME = "username";
     String USER_TYPE = "userType";
     /**
-     * userType
+     * userType：1-客服，2-用户
      */
     String FROM_USER_TYPE = "1";
     String TO_USER_TYPE = "2";
