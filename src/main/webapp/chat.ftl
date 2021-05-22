@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="Access-Control-Allow-Origin" content="*">
-    <title>智能客服系统</title>
+    <title>${username}</title>
     <link rel="stylesheet" href="assets/css/bootstrap.css"/>
     <link rel="stylesheet" href="assets/css/font-awesome.min.css"/>
     <link rel="stylesheet" href="assets/css/build.css"/>

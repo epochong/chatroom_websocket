@@ -92,7 +92,7 @@ public class WebSocketService {
         if (Constant.FROM_USER_TYPE.equals(urlParams.get(Constant.USER_TYPE))) {
             message2Client.setContent(user.getUserName() + "上线了,请问有什么能帮到您？");
         } else {
-            message2Client.setContent(user.getUserName()+ "您好！我有以下问题想要咨询。");
+            message2Client.setContent(user.getUserName()+ "说：您好！我有以下问题想要咨询。");
         }
         message2Client.setUserType(urlParams.get(Constant.USER_TYPE));
         message2Client.setNames(names);
