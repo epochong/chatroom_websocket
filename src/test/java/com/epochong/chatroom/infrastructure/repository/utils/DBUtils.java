@@ -2,7 +2,7 @@ package com.epochong.chatroom.infrastructure.repository.utils;
 
 import com.epochong.chatroom.domian.entity.Message;
 import com.epochong.chatroom.domian.entity.User;
-import com.epochong.chatroom.infrastructure.repository.mapper.AccountMapper;
+import com.epochong.chatroom.infrastructure.repository.mapper.UserMapper;
 import com.epochong.chatroom.infrastructure.repository.mapper.MessageMapper;
 import org.junit.Test;
 
@@ -18,7 +18,7 @@ import java.util.List;
 public class DBUtils {
 
     private MessageMapper messageMapper = new MessageMapper();
-    private AccountMapper accountMapper = new AccountMapper();
+    private UserMapper userMapper = new UserMapper();
 
     @Test
     public void addUserNameToMessage() {
@@ -28,9 +28,9 @@ public class DBUtils {
         for (Message msg : messageList) {
             User user = new User();
             user.setId(msg.getFromUserId());
-            User user1 = accountMapper.queryById(user);
+            User user1 = userMapper.queryById(user);
             user.setId(msg.getToUserId());
-            User user2 = accountMapper.queryById(user);
+            User user2 = userMapper.queryById(user);
             if (msg.getContent().startsWith("机器")) {
                 msg.setFromUserName("机器人" + User.UserType.NAMES.get(user1.getUserType()) + user1.getUserName());
             } else {

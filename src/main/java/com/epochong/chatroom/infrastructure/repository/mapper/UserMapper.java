@@ -1,7 +1,7 @@
 package com.epochong.chatroom.infrastructure.repository.mapper;
 
 import com.epochong.chatroom.controller.assember.UserAssembler;
-import com.epochong.chatroom.controller.dto.LoginDto;
+import com.epochong.chatroom.controller.dto.UserDto;
 import com.epochong.chatroom.domian.entity.User;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.codec.digest.DigestUtils;
@@ -17,7 +17,7 @@ import java.sql.*;
  * @describe
  */
 @Slf4j
-public class AccountMapper extends BaseMapper {
+public class UserMapper extends BaseMapper {
 
     public User queryById(User user) {
         Connection connection = null;
@@ -41,7 +41,7 @@ public class AccountMapper extends BaseMapper {
         return res;
     }
 
-    public User userLogin(LoginDto loginDto) {
+    public User userLogin(UserDto userDto) {
         Connection connection = null;
         PreparedStatement statement = null;
         ResultSet resultSet = null;
@@ -50,8 +50,8 @@ public class AccountMapper extends BaseMapper {
             connection = getConnection();
             String sql = "select * from user where username = ? and" + " password = ?";
             statement = connection.prepareStatement(sql);
-            statement.setString(1, loginDto.getUsername());
-            statement.setString(2, DigestUtils.md5Hex(loginDto.getPassword()));
+            statement.setString(1, userDto.getUsername());
+            statement.setString(2, DigestUtils.md5Hex(userDto.getPassword()));
             resultSet = statement.executeQuery();
             if (resultSet.next()) {
                 user = UserAssembler.getUser(resultSet);

@@ -5,6 +5,7 @@ import com.epochong.chatroom.controller.dto.RobotDto;
 import com.epochong.chatroom.domian.entity.Robot;
 import com.epochong.chatroom.infrastructure.repository.utils.Constant;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.exception.ExceptionUtils;
 import org.springframework.util.CollectionUtils;
 
@@ -22,15 +23,15 @@ import java.util.*;
 @Slf4j
 public class RobotMapper extends BaseMapper {
 
-    public List<Robot> getAll() {
+    public List <Robot> getAll() {
         log.info("getAll(): ");
         Connection connection = null;
         PreparedStatement statement = null;
         ResultSet resultSet = null;
-        List<Robot> robotList = new ArrayList <>();
+        List <Robot> robotList = new ArrayList <>();
         try {
             connection = getConnection();
-            String sql = "select * from robot_faq";
+            String sql = "select * from robot_faq order by matches desc";
             statement = connection.prepareStatement(sql);
             resultSet = statement.executeQuery();
             while (resultSet.next()) {
@@ -44,12 +45,15 @@ public class RobotMapper extends BaseMapper {
         return robotList;
     }
 
-    public List<Robot> searchByFaq(RobotDto robot) {
+    public List <Robot> searchByFaq(RobotDto robot) {
+        if (StringUtils.isEmpty(robot.getFaq())) {
+            return getAll();
+        }
         Connection connection = null;
         PreparedStatement statement = null;
         PreparedStatement answerStatement = null;
         ResultSet resultSet = null;
-        Set<Robot> robotSet = new HashSet <>();
+        Set <Robot> robotSet = new TreeSet<>((o1, o2) -> o2.getMatches() - o1.getMatches() != 0 ? o2.getMatches() - o1.getMatches() : o1.hashCode() - o2.hashCode());
         try {
             connection = getConnection();
             String sql = "select * from robot_faq where faq like ?";
@@ -70,6 +74,7 @@ public class RobotMapper extends BaseMapper {
         }
         return new ArrayList <>(robotSet);
     }
+
     public boolean updateById(Robot robot) {
         log.info("insertFaq(): param:{}", robot.toString());
         Connection connection = null;
@@ -78,7 +83,7 @@ public class RobotMapper extends BaseMapper {
         try {
             connection = getConnection();
             String sql = "update robot_faq set faq_valid = ?, faq = ?, answer = ? where id = ?";
-            statement = connection.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
+            statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             statement.setInt(1, robot.getFaqValid());
             statement.setString(2, robot.getFaq());
             statement.setString(3, robot.getAnswer());
@@ -87,7 +92,7 @@ public class RobotMapper extends BaseMapper {
         } catch (SQLException e) {
             log.error("insertFaq() error:{}", ExceptionUtils.getStackTrace(e));
         } finally {
-            close(connection,statement);
+            close(connection, statement);
         }
         return isSuccess;
     }
@@ -100,7 +105,7 @@ public class RobotMapper extends BaseMapper {
         try {
             connection = getConnection();
             String sql = "insert into robot_faq(faq_valid,faq,answer) values(?,?,?)";
-            statement = connection.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
+            statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             statement.setInt(1, robotDto.getFaqValid());
             statement.setString(2, robotDto.getFaq());
             statement.setString(3, robotDto.getAnswer());
@@ -108,7 +113,7 @@ public class RobotMapper extends BaseMapper {
         } catch (SQLException e) {
             log.error("insertFaq() error:{}", ExceptionUtils.getStackTrace(e));
         } finally {
-            close(connection,statement);
+            close(connection, statement);
         }
         return isSuccess;
     }
@@ -121,13 +126,34 @@ public class RobotMapper extends BaseMapper {
         try {
             connection = getConnection();
             String sql = "delete from robot_faq where id = ?";
-            statement = connection.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
+            statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             statement.setInt(1, robot.getId());
             isSuccess = (statement.executeUpdate() == 1);
         } catch (SQLException e) {
             log.error("insertFaq() error:{}", ExceptionUtils.getStackTrace(e));
         } finally {
-            close(connection,statement);
+            close(connection, statement);
+        }
+        return isSuccess;
+    }
+
+    public boolean addMatches(Robot robot) {
+        log.info("addMatches(): param:{}", robot);
+        Connection connection = null;
+        PreparedStatement statement = null;
+        boolean isSuccess = false;
+        try {
+            connection = getConnection();
+            String sql = "update robot_faq set matches = ? where id = ?";
+            statement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+            // 匹配次数加一
+            statement.setInt(1, robot.getMatches() + 1);
+            statement.setInt(2, robot.getId());
+            isSuccess = (statement.executeUpdate() == 1);
+        } catch (SQLException e) {
+            log.error("addMatches() error:{}", ExceptionUtils.getStackTrace(e));
+        } finally {
+            close(connection, statement);
         }
         return isSuccess;
     }
@@ -139,7 +165,7 @@ public class RobotMapper extends BaseMapper {
         Robot robot = null;
         try {
             connection = getConnection();
-            String sql = "select * from robot_faq where faq like ?";
+            String sql = "select * from robot_faq where faq_valid = 1 and faq like ?";
             statement = connection.prepareStatement(sql);
             // 完全匹配
             resultSet = querySqlResult(statement, dto.getFaq());
@@ -154,7 +180,7 @@ public class RobotMapper extends BaseMapper {
                 return robot;
             }
             // 使用分词选出匹配程度最高的问题
-            Map<Integer, Integer> idCountsMap = new HashMap <>();
+            Map <Integer, Integer> idCountsMap = new HashMap <>();
             for (String keyWord : dto.getKeyWords()) {
                 resultSet = querySqlResult(statement, "%" + keyWord + "%");
                 while (resultSet.next()) {
@@ -170,7 +196,7 @@ public class RobotMapper extends BaseMapper {
             if (!CollectionUtils.isEmpty(idCountsMap)) {
                 Map.Entry <Integer, Integer> maxTimes = idCountsMap.entrySet().stream().max(Comparator.comparing(Map.Entry::getValue)).get();
                 if (maxTimes.getValue() * Constant.ONE_DOUBLE >= dto.getKeyWords().size() * Constant.MOST_LIKE_PERCENT) {
-                    log.info("所有分词匹配次数大于等于该问题描述的80%，查询问题匹配程度最高的问题：问题Id:{},次数:{}",  maxTimes.getKey(), maxTimes.getValue());
+                    log.info("所有分词匹配次数大于等于该问题描述的80%，查询问题匹配程度最高的问题：问题Id:{},次数:{}", maxTimes.getKey(), maxTimes.getValue());
                     Robot queryById = new Robot();
                     queryById.setId(maxTimes.getKey());
                     return queryRobotById(queryById);
@@ -209,8 +235,29 @@ public class RobotMapper extends BaseMapper {
         return robot;
     }
 
+    public Robot queryRobotByFaq(Robot queryRobot) {
+        Connection connection = null;
+        PreparedStatement statement = null;
+        ResultSet resultSet = null;
+        Robot robot = null;
+        try {
+            connection = getConnection();
+            String sql = "select * from robot_faq where faq = ?";
+            statement = connection.prepareStatement(sql);
+            statement.setString(1, queryRobot.getFaq());
+            resultSet = statement.executeQuery();
+            if (resultSet.next()) {
+                return RobotAssembler.getRobot(resultSet);
+            }
+        } catch (Exception e) {
+            log.error("数据库查询异常 error:{}", ExceptionUtils.getStackTrace(e));
+        } finally {
+            close(connection, statement, resultSet);
+        }
+        return robot;
+    }
 
-    private ResultSet addQueryResult(PreparedStatement statement, String word, Set<Robot> robotSet) throws SQLException {
+    private ResultSet addQueryResult(PreparedStatement statement, String word, Set <Robot> robotSet) throws SQLException {
         statement.setString(1, word);
         ResultSet resultSet = statement.executeQuery();
         while (resultSet.next()) {

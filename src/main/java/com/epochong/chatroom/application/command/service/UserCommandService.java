@@ -1,6 +1,6 @@
 package com.epochong.chatroom.application.command.service;
 
-import com.epochong.chatroom.controller.dto.LoginDto;
+import com.epochong.chatroom.controller.dto.UserDto;
 import com.epochong.chatroom.domian.value.BaseResp;
 
 /**
@@ -14,8 +14,8 @@ public interface UserCommandService {
 
     /**
      * 用户注册
-     * @param loginDto 注册对象信息
+     * @param userDto 注册对象信息
      * @return
      */
-    BaseResp userRegister(LoginDto loginDto) ;
+    BaseResp userRegister(UserDto userDto) ;
 }

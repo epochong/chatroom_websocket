@@ -1,6 +1,6 @@
 package com.epochong.chatroom.controller.assember;
 
-import com.epochong.chatroom.controller.dto.LoginDto;
+import com.epochong.chatroom.controller.dto.UserDto;
 import com.epochong.chatroom.controller.vo.LoginVo;
 import com.epochong.chatroom.domian.entity.User;
 import com.epochong.chatroom.domian.value.BaseResp;
@@ -20,8 +20,8 @@ import java.util.Objects;
  */
 public class UserAssembler {
 
-    public static LoginDto getLoginDto(LoginVo vo) {
-        LoginDto dto = new LoginDto();
+    public static UserDto getLoginDto(LoginVo vo) {
+        UserDto dto = new UserDto();
         if (StringUtils.isNotEmpty(vo.getUsername())) {
             dto.setUsername(vo.getUsername());
         }
@@ -47,6 +47,7 @@ public class UserAssembler {
         user.setPassword(resultSet.getString("password"));
         user.setUserName(resultSet.getString("username"));
         user.setUserType(resultSet.getInt("user_type"));
+        user.setCity(resultSet.getString("city"));
         return user;
     }
 
@@ -55,6 +56,24 @@ public class UserAssembler {
         user.setId(Integer.parseInt(urlParams.get("id")));
         user.setUserName(urlParams.get("username"));
         user.setUserType(Integer.parseInt(urlParams.get("userType")));
+        user.setCity(urlParams.get("city"));
+        return user;
+    }
+
+    public static User getUser(UserDto userDto) {
+        User user = new User();
+        if (Objects.nonNull(userDto.getId())) {
+            user.setId(userDto.getId());
+        }
+        if (Objects.nonNull(userDto.getUsername())) {
+            user.setUserName(userDto.getUsername());
+        }
+        if (Objects.nonNull(userDto.getUserType())) {
+            user.setUserType(userDto.getUserType());
+        }
+        if (Objects.nonNull(userDto.getPassword())) {
+            user.setPassword(userDto.getPassword());
+        }
         return user;
     }
 

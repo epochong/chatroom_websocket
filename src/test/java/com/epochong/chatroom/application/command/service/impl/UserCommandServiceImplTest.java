@@ -1,10 +1,8 @@
 package com.epochong.chatroom.application.command.service.impl;
 
 import com.epochong.chatroom.application.command.service.UserCommandService;
-import com.epochong.chatroom.controller.dto.LoginDto;
+import com.epochong.chatroom.controller.dto.UserDto;
 import org.junit.Test;
-
-import static org.junit.Assert.*;
 
 /**
  * @author wangchong.epochong
@@ -19,7 +17,7 @@ public class UserCommandServiceImplTest {
 
     @Test
     public void userRegister() {
-        LoginDto dto = new LoginDto();
+        UserDto dto = new UserDto();
         dto.setUsername("test1");
         dto.setPassword("test1");
         dto.setUserType(1);

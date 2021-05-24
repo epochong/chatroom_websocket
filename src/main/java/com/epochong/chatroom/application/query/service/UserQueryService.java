@@ -1,6 +1,6 @@
 package com.epochong.chatroom.application.query.service;
 
-import com.epochong.chatroom.controller.dto.LoginDto;
+import com.epochong.chatroom.controller.dto.UserDto;
 import com.epochong.chatroom.domian.value.BaseResp;
 
 /**
@@ -14,8 +14,15 @@ public interface UserQueryService {
 
     /**
      * 用户登录
-     * @param loginDto
+     * @param userDto
      * @return
      */
-    BaseResp userLogin(LoginDto loginDto);
+    BaseResp userLogin(UserDto userDto);
+
+    /**
+     * 根据userId查询User
+     * @param userDto
+     * @return
+     */
+    BaseResp queryUserById(UserDto userDto);
 }

@@ -1,10 +1,8 @@
 package com.epochong.chatroom.application.query.service.impl;
 
 import com.epochong.chatroom.application.query.service.UserQueryService;
-import com.epochong.chatroom.controller.dto.LoginDto;
+import com.epochong.chatroom.controller.dto.UserDto;
 import org.junit.Test;
-
-import static org.junit.Assert.*;
 
 /**
  * @author wangchong.epochong
@@ -19,7 +17,7 @@ public class UserQueryServiceImplTest {
 
     @Test
     public void userLogin() {
-        LoginDto dto = new LoginDto();
+        UserDto dto = new UserDto();
         dto.setUsername("wangchong");
         dto.setPassword("wangchong");
         dto.setUserType(1);

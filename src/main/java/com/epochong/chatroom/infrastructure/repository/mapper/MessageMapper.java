@@ -19,6 +19,30 @@ import java.util.List;
 @Slf4j
 public class MessageMapper extends BaseMapper {
 
+    public Message queryLastMessageByToUserId(Message query) {
+        log.info("queryLastMessageByToUserId(): params:{}", query);
+        Connection connection = null;
+        PreparedStatement statement = null;
+        ResultSet resultSet = null;
+        Message message = new Message();
+        try {
+            connection = getConnection();
+            String sql = "select * from message where to_user_id = ? order by create_time desc";
+            statement = connection.prepareStatement(sql);
+            statement.setInt(1, query.getToUserId());
+            resultSet = statement.executeQuery();
+            if (resultSet.next()) {
+                message = MessageAssembler.getMessage(resultSet);
+            }
+        } catch (Exception e) {
+            log.error("数据库查询异常 error:{}", ExceptionUtils.getStackTrace(e));
+            return message;
+        } finally {
+            close(connection, statement, resultSet);
+        }
+        return message;
+    }
+
     public List<Message> queryByFromUserId(Message query) {
         log.info("queryByFromUserId(): params:{}", query);
         Connection connection = null;

@@ -12,6 +12,17 @@ import com.epochong.chatroom.domian.value.BaseResp;
  * @describe
  */
 public interface MessageQueryService {
+    /**
+     * 根据userId搜索所有历史消息
+     * @param messageDto
+     * @return
+     */
     BaseResp queryMessageByUserId(MessageDto messageDto) ;
 
+    /**
+     * 根据用户userId搜索最后一条消息所对应的客服
+     * @param messageDto
+     * @return
+     */
+    BaseResp queryLastMessageByUserId(MessageDto messageDto);
 }

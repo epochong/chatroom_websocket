@@ -2,7 +2,7 @@ package com.epochong.chatroom.controller;
 
 import com.epochong.chatroom.application.command.service.impl.UserCommandServiceImpl;
 import com.epochong.chatroom.controller.assember.UserAssembler;
-import com.epochong.chatroom.controller.dto.LoginDto;
+import com.epochong.chatroom.controller.dto.UserDto;
 import com.epochong.chatroom.controller.vo.LoginVo;
 import com.epochong.chatroom.application.command.service.UserCommandService;
 import com.epochong.chatroom.domian.value.BaseResp;
@@ -38,8 +38,8 @@ public class AccountController extends HttpServlet {
         //保证页面输出不乱码页面格式为text/html，编码为utf8
         resp.setContentType("text/html;charset=utf8");
         PrintWriter writer = resp.getWriter();
-        LoginDto loginDto = UserAssembler.getLoginDto(loginVo);
-        BaseResp registerResp = userCommandService.userRegister(loginDto);
+        UserDto userDto = UserAssembler.getLoginDto(loginVo);
+        BaseResp registerResp = userCommandService.userRegister(userDto);
         writer.println(UserAssembler.getWriterStr(registerResp));
     }
 

@@ -1,6 +1,6 @@
 package com.epochong.chatroom.infrastructure.repository.mapper;
 
-import com.epochong.chatroom.controller.dto.LoginDto;
+import com.epochong.chatroom.controller.dto.UserDto;
 import com.epochong.chatroom.domian.entity.User;
 import org.junit.Assert;
 import org.junit.Test;
@@ -12,8 +12,8 @@ import org.junit.Test;
  * @blog epochong.github.io
  * @describe
  */
-public class AccountMapperTest {
-    private AccountMapper accountMapper = new AccountMapper();
+public class UserMapperTest {
+    private UserMapper userMapper = new UserMapper();
 
     /**
      * 检验注册功能
@@ -25,7 +25,7 @@ public class AccountMapperTest {
         user.setUserName("test2");
         user.setPassword("test2");
         user.setUserType(2);
-        boolean isSuccess = accountMapper.userRegister(user);
+        boolean isSuccess = userMapper.userRegister(user);
         Assert.assertEquals(true,isSuccess);
     }
 
@@ -35,11 +35,11 @@ public class AccountMapperTest {
      */
     @Test
     public void userLogin() {
-        LoginDto loginDto = new LoginDto();
-        loginDto.setUsername("test");
-        loginDto.setPassword("test");
-        loginDto.setUserType(1);
-        User user = accountMapper.userLogin(loginDto);
+        UserDto userDto = new UserDto();
+        userDto.setUsername("test");
+        userDto.setPassword("test");
+        userDto.setUserType(1);
+        User user = userMapper.userLogin(userDto);
         Assert.assertNotNull(user);
     }
 }

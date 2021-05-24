@@ -1,10 +1,13 @@
 package com.epochong.chatroom.domian.entity;
 
+import com.epochong.chatroom.application.websocket.WebSocketService;
 import lombok.Data;
 import org.springframework.util.CollectionUtils;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 /**
  * @author wangchong.epochong
@@ -16,9 +19,9 @@ import java.util.Objects;
 @Data
 public class Router {
     /**
-     * 优先级1：熟人客服
+     * 优先级1：熟人客服+自己
      */
-    User recentFromUser;
+    List<WebSocketService> recent;
     /**
      * 优先级2：如果没有熟人客服按照城市维度分配所有该城市的客服
      */
@@ -26,14 +29,25 @@ public class Router {
     /**
      * 已上线的客服列表
      */
-    List<User> onlineList;
+    List<WebSocketService> onlineList;
 
+    public Router() {
+        this.onlineList = new ArrayList <>();
+    }
 
-    public List<User> getFromUserList() {
-        if (Objects.nonNull(recentFromUser)) {
-
+    public List<WebSocketService> getFromUserList() {
+        if (Objects.nonNull(recent)) {
+            recent = new ArrayList <>();
+            return recent;
         }
-        //
-        return null;
+        // 如果没有熟人，就分配该城市的所有客服
+        List <WebSocketService> filterCity = onlineList.stream()
+                .filter(online -> online.getUser().getCity().equals(city))
+                .collect(Collectors.toList());
+        if (!CollectionUtils.isEmpty(filterCity)) {
+            return filterCity;
+        }
+        // 如果本城市的客服也没有将其他城市的上线了的客服分配出去
+        return onlineList;
     }
 }

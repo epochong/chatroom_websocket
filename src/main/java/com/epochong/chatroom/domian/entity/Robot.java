@@ -15,4 +15,5 @@ public class Robot {
     private Integer faqValid;
     private String faq;
     private String answer;
+    private Integer matches;
 }

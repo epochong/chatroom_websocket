@@ -43,6 +43,10 @@ public class RobotQueryServiceImpl implements RobotQueryService {
             log.info("queryAnswer() 分词结果:{}", stringSplit);
             dto.setKeyWords(stringSplit);
             Robot robot = robotMapper.queryAnswer(dto);
+            // 匹配到问题，问题次数加一
+            if (Objects.nonNull(robot.getId())) {
+                robotMapper.addMatches(robot);
+            }
             RobotDto robotDto = null;
             if (Objects.nonNull(robot)) {
                 robotDto = RobotAssembler.getRobotDto(robot);

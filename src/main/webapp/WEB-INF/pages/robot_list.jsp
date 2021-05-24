@@ -42,6 +42,7 @@
                             <th class="hidden-xs">是否生效</th>
                             <th class="hidden-xs">问题</th>
                             <th class="hidden-xs">回复</th>
+                            <th class="hidden-xs">匹配次数</th>
                             <th>操作</th>
                         </tr>
                         </thead>
@@ -61,6 +62,7 @@
                             </td>
                             <td>${item.faq}</td>
                             <td>${item.answer}</td>
+                            <td>${item.matches}</td>
                             <td>
                                 <a href="/robot/to_update?id=${item.id}">编辑</a>
                                 <a href="/robot/remove?id=${item.id}">删除</a>

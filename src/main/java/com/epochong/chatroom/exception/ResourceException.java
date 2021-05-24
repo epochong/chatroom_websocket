@@ -14,8 +14,10 @@ public enum  ResourceException {
     NOT_TO_USER(10002, "您是客服，请使用客服身份登录！"),
     ACCOUNT_NOT_CORRECT(10003, "账户或密码不正确！"),
     REGISTER_FAIL(10004,"注册失败！"),
+    HAVE_NO_ID_USER(10005,"没有该ID的用户"),
     ROBOT_LAST_MESSAGE(20001, "这个问题机器人还没学会，请人工回复！"),
-    SYSTEM_ERROR(00000, "系统异常，请联系管理员");
+    SYSTEM_ERROR(00000, "系统异常，请联系管理员"),
+    HAVE_NO_MESSAGE(30000, "该用户是新用户没有和被坐席接待过"),;
 
     private int code;
     private String message;

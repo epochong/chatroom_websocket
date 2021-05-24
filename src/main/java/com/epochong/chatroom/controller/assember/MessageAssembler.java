@@ -8,6 +8,7 @@ import com.epochong.chatroom.domian.value.MessageFromClient;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Objects;
 
 /**
  * @author wangchong.epochong
@@ -28,12 +29,24 @@ public class MessageAssembler {
 
     public static Message getMessage(MessageDto messageDto) {
         Message message= new Message();
-        message.setFromUserId(messageDto.getFromUserId());
-        message.setToUserId(messageDto.getToUserId());
-        message.setContent(messageDto.getContent());
-        message.setFromUserName(messageDto.getFromUserName());
-        message.setToUserName(messageDto.getToUserName());
-        message.setType(messageDto.getType());
+        if (Objects.nonNull(messageDto.getFromUserId())) {
+            message.setFromUserId(messageDto.getFromUserId());
+        }
+        if (Objects.nonNull(messageDto.getToUserId())) {
+            message.setToUserId(messageDto.getToUserId());
+        }
+        if (Objects.nonNull(messageDto.getContent())) {
+            message.setContent(messageDto.getContent());
+        }
+        if (Objects.nonNull(messageDto.getFromUserName())) {
+            message.setFromUserName(messageDto.getFromUserName());
+        }
+        if (Objects.nonNull(messageDto.getToUserName())) {
+            message.setToUserName(messageDto.getToUserName());
+        }
+        if (Objects.nonNull(messageDto.getType())) {
+            message.setType(messageDto.getType());
+        }
         return message;
     }
 

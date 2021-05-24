@@ -4,7 +4,7 @@ import com.epochong.chatroom.application.query.service.UserQueryService;
 import com.epochong.chatroom.application.query.service.impl.UserQueryServiceImpl;
 import com.epochong.chatroom.config.FreeMarkerListener;
 import com.epochong.chatroom.controller.assember.UserAssembler;
-import com.epochong.chatroom.controller.dto.LoginDto;
+import com.epochong.chatroom.controller.dto.UserDto;
 import com.epochong.chatroom.controller.vo.LoginVo;
 import com.epochong.chatroom.domian.entity.User;
 import com.epochong.chatroom.domian.value.BaseResp;
@@ -57,16 +57,18 @@ public class LoginController extends HttpServlet {
             out.println(verify);
             return;
         }
-        LoginDto loginDto = UserAssembler.getLoginDto(loginVo);
-        BaseResp baseResp = userQueryService.userLogin(loginDto);
+        UserDto userDto = UserAssembler.getLoginDto(loginVo);
+        BaseResp baseResp = userQueryService.userLogin(userDto);
         if (baseResp.getCode() == Constant.SUCCESS) {
             // 登录成功,跳转到聊天页面
             // 加载chat.ftl
             Template template = getTemplate(req,"/chat.ftl");
             //给前端传参放入map中，以k,v的形式
             Map<String, String> map = new HashMap<>();
+            User queryUser = (User) baseResp.getObject();
             map.put("username", UserUtils.getUserName(loginVo.getUsername(), loginVo.getUserType()));
             map.put("userType", String.valueOf(loginVo.getUserType()));
+            map.put("city", queryUser.getCity());
             User user = (User) baseResp.getObject();
             map.put("id", String.valueOf(user.getId()));
             try {

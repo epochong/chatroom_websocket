@@ -66,7 +66,7 @@
         * session.getQueryString()获取所有的值
         * 如果有多个则是username=username & password =
         * */
-        webSocketService = new WebSocket('ws://127.0.0.1:8087/websocket?username=' + '${username}' + '&userType=' + '${userType}' + '&id=' + '${id}');
+        webSocketService = new WebSocket('ws://127.0.0.1:8087/websocket?username=' + '${username}' + '&userType=' + '${userType}' + '&id=' + '${id}' + '&city=' + '${city}');
     } else {
         alert("当前浏览器不支持WebSocket");
     }

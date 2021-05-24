@@ -8,6 +8,8 @@ import com.epochong.chatroom.domian.value.BaseResp;
 import com.epochong.chatroom.exception.ResourceException;
 import com.epochong.chatroom.infrastructure.repository.mapper.RobotMapper;
 
+import java.util.Objects;
+
 /**
  * @author wangchong.epochong
  * @date 2021/5/17 15:29
@@ -19,8 +21,16 @@ public class RobotCommandServiceImpl implements RobotCommandService {
 
     private RobotMapper robotMapper = new RobotMapper();
     @Override
-    public BaseResp insertRobotFaq(RobotDto robotDto) {
-        if (robotMapper.insertFaq(robotDto)) {
+    public BaseResp insertRobotFaq(RobotDto dto) {
+        Robot robot = robotMapper.queryRobotByFaq(RobotAssembler.getRobot(dto));
+        // 如果数据库中有这个问题，则应该是更新问题
+        if (Objects.nonNull(robot)) {
+            robot.setAnswer(dto.getAnswer());
+            robot.setFaqValid(1);
+            robotMapper.updateById(robot);
+            return BaseResp.getSuccessResp();
+        }
+        if (robotMapper.insertFaq(dto)) {
             return new BaseResp(ResourceException.SUCCESS);
         }
         return new BaseResp(ResourceException.SYSTEM_ERROR);

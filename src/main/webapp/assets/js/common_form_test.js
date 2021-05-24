@@ -1,4 +1,4 @@
-
+﻿
 //用户框失去焦点后验证value值
 function oBlur_1() {
     var a = document.getElementsByTagName("input")[0].value;

@@ -47,6 +47,7 @@ public class RobotAssembler {
         robot.setFaqValid(resultSet.getInt("faq_valid"));
         robot.setFaq(resultSet.getString("faq"));
         robot.setAnswer(resultSet.getString("answer"));
+        robot.setMatches(resultSet.getInt("matches"));
         return robot;
     }
 
