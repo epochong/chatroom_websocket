@@ -31,6 +31,9 @@ public class UserAssembler {
         if (Objects.nonNull(vo.getUserType())) {
             dto.setUserType(vo.getUserType());
         }
+        if (StringUtils.isNotEmpty(vo.getCity())) {
+            dto.setCity(vo.getCity());
+        }
         return dto;
     }
 
@@ -73,6 +76,9 @@ public class UserAssembler {
         }
         if (Objects.nonNull(userDto.getPassword())) {
             user.setPassword(userDto.getPassword());
+        }
+        if (StringUtils.isNotEmpty(userDto.getCity())) {
+            user.setCity(userDto.getCity());
         }
         return user;
     }

@@ -1,12 +1,12 @@
 package com.epochong.chatroom.domian.entity;
 
 import com.epochong.chatroom.application.websocket.WebSocketService;
+import com.epochong.chatroom.infrastructure.repository.utils.Constant;
 import lombok.Data;
 import org.springframework.util.CollectionUtils;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 import java.util.stream.Collectors;
 
 /**
@@ -24,6 +24,7 @@ public class Router {
     List<WebSocketService> recent;
     /**
      * 优先级2：如果没有熟人客服按照城市维度分配所有该城市的客服
+     * 只有用户的client能设置city，客服的路由city是空，这样才能返回所有上线客服（客服与客服之间地域无关）
      */
     String city;
     /**
@@ -36,13 +37,12 @@ public class Router {
     }
 
     public List<WebSocketService> getFromUserList() {
-        if (Objects.nonNull(recent)) {
-            recent = new ArrayList <>();
+        if (!CollectionUtils.isEmpty(recent)) {
             return recent;
         }
         // 如果没有熟人，就分配该城市的所有客服
         List <WebSocketService> filterCity = onlineList.stream()
-                .filter(online -> online.getUser().getCity().equals(city))
+                .filter(online -> online.getUser().getCity().equals(city) && online.getUser().getUserType() == Constant.INT_FROM_USER_TYPE)
                 .collect(Collectors.toList());
         if (!CollectionUtils.isEmpty(filterCity)) {
             return filterCity;

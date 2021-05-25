@@ -107,33 +107,50 @@
         document.getElementById('rightCont').scrollTop = document.getElementById('rightCont').scrollHeight;
         // 上线是true，下线是false，其他发消息情况是空
         if ((msg.isOnOpen || msg.isOnOpen == false) && undefined != msg.names) {
-            $("#userList").html("");
-            $.each(msg.names, function (key, value) {
-                console.log("names-each-userType:" + $("#userType").val());
-                // 客户只渲染客服列表，客服渲染处自己外的所有客服和客户的列表
-                if (!($("#userType").val() == 2 && value.indexOf("用户") == 0)) {
-                    console.log("onmessage-username:" + $("#headName").text() + ",value:" + value);
-                    // 去除自己
-                    if (value != $("#headName").text()) {
-                        // 左侧列表
-                        var htmlstr =
-                                '<li>'
-                                + '<div class="checkbox checkbox-success checkbox-inline">'
-                                + '<input type="checkbox" class="styled" id="' + key + '" value="' + key + '" checked>'
-                                + '<label for="' + key + '"></label>'
-                                + '</div>'
-                                + '<div class="liLeft">' +
-                                '<img src="assets/img/robot2.jpg"/>' +
-                                '</div>'
-                                + '<div class="liRight">'
-                                + '<span class="intername">' + value + '</span>'
-                                + '</div>'
-                                + '</li>'
-                        $("#userList").append(htmlstr);
+            if (msg.isOnOpen && msg.type == 2) {
+                $.each(msg.names, function (key, value) {
+                    // 客服只需要新增用户
+                    if ($("#userType").val() == 1 && value.indexOf("用户") == 0) {
+                        $("#userList").append(getUlLi(key, value));
                     }
-                }
-            })
+                    // 用户渲染客服
+                    if ($("#userType").val() == 2 && value.indexOf("客服") == 0) {
+                        $("#userList").append(getUlLi(key, value));
+                    }
+                })
+            } else {
+                $("#userList").html("");
+                $.each(msg.names, function (key, value) {
+                    console.log("names-each-userType:" + $("#userType").val());
+                    // 客户只渲染客服列表，客服渲染处自己外的所有客服和客户的列表
+                    if (!($("#userType").val() == 2 && value.indexOf("用户") == 0)) {
+                        console.log("onmessage-username:" + $("#headName").text() + ",value:" + value);
+                        // 去除自己
+                        if (value != $("#headName").text()) {
+                            $("#userList").append(getUlLi(key, value));
+                        }
+                    }
+                })
+            }
         }
+    };
+
+    function getUlLi(key, value) {
+        // 左侧列表
+        var htmlstr =
+                '<li>'
+                + '<div class="checkbox checkbox-success checkbox-inline">'
+                + '<input type="checkbox" class="styled" id="' + key + '" value="' + key + '" checked>'
+                + '<label for="' + key + '"></label>'
+                + '</div>'
+                + '<div class="liLeft">' +
+                '<img src="assets/img/robot2.jpg"/>' +
+                '</div>'
+                + '<div class="liRight">'
+                + '<span class="intername">' + value + '</span>'
+                + '</div>'
+                + '</li>'
+        return htmlstr;
     };
 
 
@@ -236,7 +253,7 @@
         if (ss.size() == 0) {
             var obj = {
                 msg: message,
-                type: 1,
+                type: 2,
                 fromUserType: fromUser,
                 titleName: $("#headName").text()
             }

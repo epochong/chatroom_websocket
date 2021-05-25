@@ -8,6 +8,7 @@ import com.epochong.chatroom.domian.value.MessageFromClient;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Map;
 import java.util.Objects;
 
 /**
@@ -18,10 +19,10 @@ import java.util.Objects;
  * @describe
  */
 public class MessageAssembler {
-    public static Message2Client getMessage2Client(MessageFromClient messageFromClient) {
+    public static Message2Client getMessage2Client(MessageFromClient messageFromClient, Map<String, String> selfNames) {
         Message2Client message2Client = new Message2Client();
         message2Client.setContent(messageFromClient.getMsg());
-        message2Client.setNames(WebSocketService.names);
+        message2Client.setNames(selfNames);
         message2Client.setType(Integer.parseInt(messageFromClient.getFromUserType()));
         message2Client.setTitleName(messageFromClient.getTitleName());
         return message2Client;

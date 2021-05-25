@@ -11,6 +11,18 @@ function oBlur_1() {
     }
 }
 
+//用户框失去焦点后验证value值
+function oBlur_5() {
+    var a = document.getElementsByTagName("input")[0].value;
+    if (!a) { //用户框value值为空
+        document.getElementById("remind_5").innerHTML = "请输入城市！";
+        document.getElementById("change_margin_5").style.marginBottom = 1 + "px";
+    } else { //用户框value值不为空
+        document.getElementById("remind_1").innerHTML = "";
+        document.getElementById("change_margin_5").style.marginBottom = 19 + "px";
+    }
+}
+
 //密码框失去焦点后验证value值
 function oBlur_2() {
     var b = document.getElementsByTagName("input")[1].value;
@@ -29,6 +41,11 @@ function oBlur_2() {
 function oFocus_1() {
     document.getElementById("remind_1").innerHTML = "";
     document.getElementById("change_margin_1").style.marginBottom = 19 + "px";
+}
+
+function oFocus_5() {
+    document.getElementById("remind_5").innerHTML = "";
+    document.getElementById("change_margin_5").style.marginBottom = 19 + "px";
 }
 
 //密码框获得焦点的隐藏提醒

@@ -34,6 +34,7 @@ public class AccountController extends HttpServlet {
         LoginVo loginVo = new LoginVo();
         loginVo.setUsername(req.getParameter("username"));
         loginVo.setPassword(req.getParameter("password"));
+        loginVo.setCity(req.getParameter("city"));
         loginVo.setUserType(Integer.parseInt(req.getParameter("userType")));
         //保证页面输出不乱码页面格式为text/html，编码为utf8
         resp.setContentType("text/html;charset=utf8");

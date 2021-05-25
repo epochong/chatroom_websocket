@@ -14,4 +14,5 @@ public class LoginVo {
     private String username;
     private String password;
     private Integer userType;
+    private String city;
 }

@@ -55,10 +55,18 @@ public class WebSocketService {
     public static CopyOnWriteArraySet<WebSocketService> clients = new CopyOnWriteArraySet <>();
 
     /**
+     * 会话域中分配的对象
+     */
+    private CopyOnWriteArraySet<WebSocketService> selfClients;
+    /**
      * 缓存所有的用户映射信息
      * session id --> 用户名
      */
     public static Map<String, String> names = new ConcurrentHashMap <>();
+    /**
+     * 会话领域内用户
+     */
+    public Map<String, String> selfNames = new ConcurrentHashMap <>();
     /**
      * 缓存消息,0:缓存用户问题，1:缓存客服回答
      */
@@ -89,20 +97,29 @@ public class WebSocketService {
         try {
             log.info("新连接,session id:" + session.getId() + ",user：" + user);
             buildClient(session);
-
             // 历史消息展示
             showHistoryMessage();
             // 发送消息之前先路由坐席
             Router router = getRouter();
+            afterRouter(router);
             // 构建上线消息
             Message2Client message2Client = buildMessage2Client();
             // 向前端发送消息
-            sendMessage(router, message2Client);
+            sendMessage(message2Client);
             // 数据库存入消息
-            saveMessage(router, message2Client);
+            saveOpenMessage(message2Client);
         } catch (Exception e) {
             log.error("onOpen() error:{}", ExceptionUtils.getStackTrace(e));
         }
+    }
+
+    private void afterRouter(Router router) {
+        selfClients = new CopyOnWriteArraySet <>(router.getFromUserList());
+        // 设置会话领域内的id和名
+        selfClients.forEach(c -> {
+            log.info("session id:{}, username:{}", c.getSession().getId(), c.getUser().getUserName());
+            selfNames.put(c.getSession().getId(), c.getUser().getUserName());
+        });
     }
 
     private Message2Client buildMessage2Client() {
@@ -114,7 +131,7 @@ public class WebSocketService {
         }
         message2Client.setType(user.getUserType());
         message2Client.setTitleName(user.getUserName());
-        message2Client.setNames(names);
+        message2Client.setNames(selfNames);
         message2Client.setIsOnOpen(true);
         return message2Client;
     }
@@ -131,8 +148,8 @@ public class WebSocketService {
         names.put(session.getId(), user.getUserName());
     }
 
-    private void saveMessage(Router router, Message2Client message2Client) {
-        clients.forEach(c -> {
+    private void saveOpenMessage(Message2Client message2Client) {
+        selfClients.forEach(c -> {
             // 如果是用户，则发给所有客服即可
             if (user.getUserType() == Constant.INT_TO_USER_TYPE && c.user.getUserType() == Constant.INT_FROM_USER_TYPE) {
                 MessageDto messageDto = new MessageDto();
@@ -159,9 +176,9 @@ public class WebSocketService {
     }
 
 
-    private void sendMessage(Router router, Message2Client message2Client) {
+    private void sendMessage(Message2Client message2Client) {
         // 用户之间不可看见消息，客服之间，客服和用户之间可以看到消息
-        clients.stream()
+        selfClients.stream()
                 .filter(c -> (user.getUserType() == Constant.INT_TO_USER_TYPE
                         && c.user.getUserType() == Constant.INT_FROM_USER_TYPE)
                         || user.getUserType() == Constant.INT_FROM_USER_TYPE
@@ -173,24 +190,30 @@ public class WebSocketService {
     }
 
     private Router getRouter() {
-        // 优先级1：先找熟人
         Router router = new Router();
+        // 添加熟人客服
         MessageDto messageDto = new MessageDto();
+        // 如果是客服设置的user.getId()是查不到消息的，因为toUserId数据库对应的是用户id，不可能是客服id
         messageDto.setToUserId(user.getId());
         BaseResp baseResp = messageQueryService.queryLastMessageByUserId(messageDto);
         if (baseResp.getCode() != Constant.SUCCESS) {
-            return new Router();
+            // 没查到：可能是客服身份，也可能是新用户身份
+            if (user.getUserType() == Constant.INT_TO_USER_TYPE) {
+                router.setCity(user.getCity());
+            }
+            log.info("no router-baseResp:{}", baseResp);
+        } else {
+            Message message = (Message) baseResp.getObject();
+            List <WebSocketService> recent = clients.stream()
+                    .filter(c -> c.getUser().getId().equals(message.getFromUserId()))
+                    .collect(Collectors.toList());
+            recent.add(this);
+            router.setRecent(recent);
+            router.setCity(user.getCity());
         }
-        Message message = (Message) baseResp.getObject();
-        List <WebSocketService> recent = clients.stream()
-                .filter(c -> c.getUser().getId().equals(message.getFromUserId()))
-                .collect(Collectors.toList());
-        recent.add(this);
-        router.setRecent(recent);
-        // 没找到熟人，则使用优先级2的策略：找相同城市的客服。如果是客服，则加入已上线的客服列表中
-        router.setCity(user.getCity());
+        // 添加已上线的客服和自己
         List <WebSocketService> onlineList = clients.stream()
-                .filter(c -> c.user.getUserType() == Constant.INT_FROM_USER_TYPE && c.user.getCity().equals(router.getCity()))
+                .filter(c -> c.user.getUserType() == Constant.INT_FROM_USER_TYPE || c == this)
                 .collect(Collectors.toList());
         router.setOnlineList(onlineList);
         return router;
@@ -254,7 +277,7 @@ public class WebSocketService {
             //1代表群聊
             if (messageFromClient.getType().equals(Constant.GROUP_CHAT_TYPE)) {
                 //群聊的信息
-                Message2Client message2Client = MessageAssembler.getMessage2Client(messageFromClient);
+                Message2Client message2Client = MessageAssembler.getMessage2Client(messageFromClient, this.getSelfNames());
                 //用户只能发送给客服，客服可以发送给客服和用户。广播发送
                 clients.stream()
                         .filter(c -> (user.getUserType() == 2 && c.user.getUserType() == 1) || user.getUserType() == 1)
@@ -264,7 +287,7 @@ public class WebSocketService {
             else if (messageFromClient.getType().equals(Constant.PRIVATE_CHAT_TYPE)) {
                 List <String> toClients = getToClientsList(messageFromClient);
                 //发送私聊信息
-                Message2Client message2Client = MessageAssembler.getMessage2Client(messageFromClient);
+                Message2Client message2Client = MessageAssembler.getMessage2Client(messageFromClient, this.getSelfNames());
                 //给指定的SessionID发送信息 ，SessionID从0开始，新建一个窗口加1
                 clients.stream()
                         //在所有客户存在的客户中找到了勾选的私聊对象（通过ID）并且不是自己
@@ -320,7 +343,7 @@ public class WebSocketService {
             robotMessage.setMsg(baseResp.getMessage());
             robotMessage.setTo(session.getId());
             List <String> toClients = getToClientsList(messageFromClient);
-            Message2Client message2Client = MessageAssembler.getMessage2Client(robotMessage);
+            Message2Client message2Client = MessageAssembler.getMessage2Client(robotMessage, this.getSelfNames());
             clients.stream()
                     //用户自己或者所有勾选的客服
                     .filter(client -> client == this || toClients.contains(client.session.getId()) )
@@ -386,17 +409,19 @@ public class WebSocketService {
     public void onClose() {
         // 将客户端聊天实体移除
         clients.remove(this);
+        selfClients.remove(this);
         // 将当前用户以及SessionID移除用户列表
         names.remove(session.getId());
+        selfNames.remove(session.getId());
         log.info("有连接下线了,用户名为" + user.getUserName());
         Message2Client message2Client = new Message2Client();
         message2Client.setContent(user.getUserName() + "下线了！");
-        message2Client.setNames(names);
+        message2Client.setNames(selfNames);
         message2Client.setTitleName(user.getUserName());
         message2Client.setType(user.getUserType());
         message2Client.setIsOnOpen(false);
         // 发送信息
-        clients.stream()
+        selfClients.stream()
                 .filter(c -> !(user.getUserType() == Constant.INT_TO_USER_TYPE && c.user.getUserType() == Constant.INT_TO_USER_TYPE))
                 .forEach(c -> c.sendMsg(CommUtils.object2Json(message2Client)));
     }

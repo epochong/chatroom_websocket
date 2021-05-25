@@ -70,11 +70,12 @@ public class UserMapper extends BaseMapper {
         boolean isSuccess = false;
         try {
             connection = getConnection();
-            String sql = "insert into user(username,password,user_type) values(?,?,?)";
+            String sql = "insert into user(username,password,user_type,city) values(?,?,?,?)";
             statement = connection.prepareStatement(sql,Statement.RETURN_GENERATED_KEYS);
             statement.setString(1, user.getUserName());
             statement.setString(2, DigestUtils.md5Hex(user.getPassword()));
             statement.setInt(3, user.getUserType());
+            statement.setString(4, user.getCity());
             //statement.setString(4, user.getCity());
             isSuccess = (statement.executeUpdate() == 1);
         } catch (SQLException e) {
