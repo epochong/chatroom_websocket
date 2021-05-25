@@ -105,7 +105,8 @@
             }
         }
         document.getElementById('rightCont').scrollTop = document.getElementById('rightCont').scrollHeight;
-        if (msg.isOnOpen && undefined != msg.names) {
+        // 上线是true，下线是false，其他发消息情况是空
+        if ((msg.isOnOpen || msg.isOnOpen == false) && undefined != msg.names) {
             $("#userList").html("");
             $.each(msg.names, function (key, value) {
                 console.log("names-each-userType:" + $("#userType").val());

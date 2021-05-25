@@ -384,22 +384,21 @@ public class WebSocketService {
 
     @OnClose
     public void onClose() {
-
-
+        // 将客户端聊天实体移除
+        clients.remove(this);
+        // 将当前用户以及SessionID移除用户列表
+        names.remove(session.getId());
         log.info("有连接下线了,用户名为" + user.getUserName());
         Message2Client message2Client = new Message2Client();
         message2Client.setContent(user.getUserName() + "下线了！");
         message2Client.setNames(names);
         message2Client.setTitleName(user.getUserName());
         message2Client.setType(user.getUserType());
+        message2Client.setIsOnOpen(false);
         // 发送信息
         clients.stream()
                 .filter(c -> !(user.getUserType() == Constant.INT_TO_USER_TYPE && c.user.getUserType() == Constant.INT_TO_USER_TYPE))
                 .forEach(c -> c.sendMsg(CommUtils.object2Json(message2Client)));
-        // 将客户端聊天实体移除
-        clients.remove(this);
-        // 将当前用户以及SessionID移除用户列表
-        names.remove(session.getId());
     }
 
     /**
