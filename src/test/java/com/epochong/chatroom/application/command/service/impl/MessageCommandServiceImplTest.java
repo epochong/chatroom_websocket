@@ -23,9 +23,12 @@ public class MessageCommandServiceImplTest {
     public void insertRobotFaq() {
         MessageDto messageDto = new MessageDto();
         messageDto.setFromUserId(28);
+        messageDto.setFromUserName("wangchong");
         messageDto.setToUserId(23);
+        messageDto.setToUserName("caoqingchao");
         messageDto.setUserType(2);
-        messageDto.setContent("小米");
-        messageCommandService.insertRobotFaq(messageDto);
+        messageDto.setContent("小米test1");
+        messageDto.setType(1);
+        messageCommandService.insertMessage(messageDto);
     }
 }

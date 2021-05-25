@@ -22,8 +22,8 @@ public class UserMapperTest {
     public void userRegister() {
 
         User user = new User();
-        user.setUserName("test2");
-        user.setPassword("test2");
+        user.setUserName("test3");
+        user.setPassword("test3");
         user.setUserType(2);
         boolean isSuccess = userMapper.userRegister(user);
         Assert.assertEquals(true,isSuccess);
@@ -36,8 +36,8 @@ public class UserMapperTest {
     @Test
     public void userLogin() {
         UserDto userDto = new UserDto();
-        userDto.setUsername("test");
-        userDto.setPassword("test");
+        userDto.setUsername("wangchong");
+        userDto.setPassword("wangchong");
         userDto.setUserType(1);
         User user = userMapper.userLogin(userDto);
         Assert.assertNotNull(user);

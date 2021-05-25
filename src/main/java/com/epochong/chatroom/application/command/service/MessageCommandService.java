@@ -11,5 +11,5 @@ import com.epochong.chatroom.domian.value.BaseResp;
  * @describe
  */
 public interface MessageCommandService {
-    BaseResp insertRobotFaq(MessageDto messageDto) ;
+    BaseResp insertMessage(MessageDto messageDto) ;
 }

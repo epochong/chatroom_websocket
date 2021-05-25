@@ -18,7 +18,7 @@ public class MessageCommandServiceImpl implements MessageCommandService {
 
     private MessageMapper messageMapper = new MessageMapper();
     @Override
-    public BaseResp insertRobotFaq(MessageDto messageDto) {
+    public BaseResp insertMessage(MessageDto messageDto) {
         Message message = MessageAssembler.getMessage(messageDto);
         boolean isSuccess = messageMapper.insertMessage(message);
         if (isSuccess) {

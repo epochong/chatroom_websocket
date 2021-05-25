@@ -36,7 +36,6 @@ import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CopyOnWriteArraySet;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 /**
  * @author epochong
@@ -116,6 +115,7 @@ public class WebSocketService {
         message2Client.setType(user.getUserType());
         message2Client.setTitleName(user.getUserName());
         message2Client.setNames(names);
+        message2Client.setIsOnOpen(true);
         return message2Client;
     }
 
@@ -225,7 +225,7 @@ public class WebSocketService {
 
     private void saveMessage(MessageDto messageDto) {
         log.info("saveMessage() request: {}", messageDto);
-        BaseResp baseResp = messageCommandService.insertRobotFaq(messageDto);
+        BaseResp baseResp = messageCommandService.insertMessage(messageDto);
         if (baseResp.getCode() == Constant.SUCCESS) {
             log.info("插入消息成功：{}", baseResp);
         } else {

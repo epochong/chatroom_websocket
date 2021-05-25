@@ -34,6 +34,10 @@ public class Message2Client {
      * 消息卡片上标明是谁发的
      */
     private String titleName;
+    /**
+     * 是否是上线消息
+     */
+    private Boolean isOnOpen;
 
     /**
      * 发送者调用

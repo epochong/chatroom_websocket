@@ -88,7 +88,6 @@
 
     webSocketService.onmessage = function (event) {
         console.log("onmessage-username:" + $("#headName").text());
-        $("#userList").html("");
         eval("var msg=" + event.data + ";");
 
         if (undefined != msg.content) {
@@ -106,13 +105,14 @@
             }
         }
         document.getElementById('rightCont').scrollTop = document.getElementById('rightCont').scrollHeight;
-        if (undefined != msg.names) {
+        if (msg.isOnOpen && undefined != msg.names) {
+            $("#userList").html("");
             $.each(msg.names, function (key, value) {
-                console.log("names.value.indexOf:" + value.indexOf("用户"));
                 console.log("names-each-userType:" + $("#userType").val());
                 // 客户只渲染客服列表，客服渲染处自己外的所有客服和客户的列表
                 if (!($("#userType").val() == 2 && value.indexOf("用户") == 0)) {
-                    console.log("onmessage-username:" + $("#headName").text() + "进来了")
+                    console.log("onmessage-username:" + $("#headName").text() + ",value:" + value);
+                    // 去除自己
                     if (value != $("#headName").text()) {
                         // 左侧列表
                         var htmlstr =
